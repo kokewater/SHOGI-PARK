@@ -28,14 +28,9 @@ https://docs.google.com/spreadsheets/d/1Eanr4TruW3NNf5V6Fhc7tYCGCQ0B3XWjrivmylwP
 - IDE：Cloud9
 
 ## 使用素材
-写真素材
 - ぱくたそ https://www.pakutaso.com/
 - O-DAN http://o-dan.net/ja/
 - morguefile https://morguefile.com/
-フォント素材
 - Font Free http://fontfree.me/
-アイコン素材
 - ICOOON MONO http://icooon-mono.com/
-ロゴ作成
 - designevo https://www.designevo.com/
-（予定）
