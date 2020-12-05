@@ -20,6 +20,9 @@
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1Eanr4TruW3NNf5V6Fhc7tYCGCQ0B3XWjrivmylwPapw/edit?usp=sharing
 
+### テーブル定義書
+https://docs.google.com/spreadsheets/d/1MB6pto9sd5A7EScyx4ANbHB4xeF2uMLiO_K4zU2WX9g/edit?usp=sharing
+
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
