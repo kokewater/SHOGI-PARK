@@ -1,0 +1,52 @@
+<div class="container">
+
+  <h2>投稿ジャンル一覧・追加</h2>
+
+  <!--ジャンル追加-->
+  <div class="row">
+    <div class="col-md-6">
+      <%= form_with model:[:admin, @genre], local:true do |f| %>
+
+        <!--エラー文-->
+        <% if @genre.errors.any? %>
+          <div class="alert alert-warning">
+            <ul>
+              <% @genre.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= f.label :name, "ジャンル" %>
+        <%= f.text_field :name %>
+        <%= f.submit "追加", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+
+  <!--ジャンル一覧-->
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table">
+
+        <thead>
+          <tr>
+            <th>ジャンル</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <% @genres.each do |genre| %>
+          <tr>
+            <td><%= genre.name %></td>
+            <td><%= link_to "編集する", edit_admin_genre_path(genre), class: 'btn btn-primary' %></td>
+            <td><%= link_to "削除する", admin_genre_path(genre), class: 'btn btn-primary', method: :delete %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
