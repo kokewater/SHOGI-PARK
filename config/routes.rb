@@ -6,9 +6,7 @@ Rails.application.routes.draw do
     get 'top' => 'homes#top'
     resources :users, only: [:index, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
-    resources :questions, only: [:index, :show, :destroy] do
-      resources :answers, only: [:destroy]
-    end
+    resources :tweets, only: [:index, :show, :destroy]
   end
 
 
@@ -27,17 +25,13 @@ Rails.application.routes.draw do
         get :out
       end
     end
-    resources :questions do
+    resources :tweets do
       collection do
         get :sort
         get :search
       end
-      resources :question_likes, only: [:create, :destroy]
-      resources :answers, only: [:create, :destroy]
+      resources :likes, only: [:create, :destroy]
     end
-
-
-    resources :answer_likes, only: [:create, :destroy]
     resources :post_messages, only: [:index, :create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
