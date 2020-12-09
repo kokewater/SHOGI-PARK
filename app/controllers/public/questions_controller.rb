@@ -1,4 +1,5 @@
 class Public::QuestionsController < ApplicationController
+  before_action :authenticate_user!
   
   def new
     @question = Question.new
@@ -6,6 +7,7 @@ class Public::QuestionsController < ApplicationController
   
   def create
     @question = Question.new(question_params)
+    @question.user_id = current_user.id
     if @question.save
       redirect_to question_path(@question), notice: "投稿しました"
     else
@@ -14,7 +16,7 @@ class Public::QuestionsController < ApplicationController
   end
   
   def index
-    @questions = Question.all
+    @questions = Question.all.includes(:user)
     @genres = Genre.all
   end
   
@@ -22,6 +24,8 @@ class Public::QuestionsController < ApplicationController
   end
   
   def show
+    @question = Question.find(params[:id])
+    @genres = Genre.all
   end
   
   def edit

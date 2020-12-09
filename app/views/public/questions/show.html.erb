@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+        <h2>ジャンル検索</h2>
+        <% @genres.each do |genre| %>
+          <li>
+            <%= link_to genre.name, sort_questions_path(genre_id: genre.id) %>
+          </li>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to '質問する！！', new_question_path, class: "btn btn-info btn-lg new-question-button" %>
+      </div>
+      <div>
+        <%= link_to '掲示板へ！！', post_messages_path, class: "btn btn-success btn-lg" %>
+      </div>
+    </div>
+    <div class="col-md-9 question-show">
+      <%= attachment_image_tag @question, :image, width: "100%", fallback: "no_image.jpg" %>
+      タイトル：<%= @question.title %><br>
+      本文：<%= @question.body %><br>
+      <%= link_to user_path(@question.user) do %>
+        <%= attachment_image_tag(@question.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.png") %>
+        <%= @question.user.name %>さん
+      <% end %>
+    </div>
+  </div>
+</div>

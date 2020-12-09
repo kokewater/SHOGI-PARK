@@ -23,12 +23,35 @@
   box-sizing: border-box;
 }
 
-body {
-  margin-top: 51px;
+.navbar-custom {
+  background-color: #428ac9;
 }
 
-.navbar-nav {
-  li:hover {
-    background-color: #ccc;
+.navbar-nav > li > a {
+  color: #001000;
+}
+
+
+body {
+  margin-top: 51px;
+  background-color: #f5f3f2;
+}
+
+.question-table {
+  column-count: 2;
+  .question-block {
+    background-color: #fff;
+    border-radius: 10px;
+    break-inside: avoid;
+    margin-bottom: 20px;
   }
+}
+
+.new-question-button {
+  margin-bottom: 20px;
+}
+
+.question-show {
+  background-color: #fff;
+  padding-top: 20px;
 }

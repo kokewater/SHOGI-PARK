@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_133434) do
   end
 
   create_table "questions", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.integer "genre_id", null: false
     t.string "title", null: false
     t.text "body", null: false
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_133434) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
+    t.string "profile_image_id"
     t.boolean "is_deleted", default: false, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
