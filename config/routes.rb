@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     get 'top' => 'homes#top'
     resources :users, only: [:index, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
-    resources :tweets, only: [:index, :show, :destroy]
+    resources :questions, only: [:index, :show, :destroy] do
+      resources :answers, only: [:destroy]
+    end
   end
 
 
@@ -25,11 +27,12 @@ Rails.application.routes.draw do
         get :out
       end
     end
-    resources :tweets do
+    resources :questions do
       collection do
         get :sort
         get :search
       end
+      resources :answers, only: [:create, :destroy]
       resources :likes, only: [:create, :destroy]
     end
     resources :post_messages, only: [:index, :create]

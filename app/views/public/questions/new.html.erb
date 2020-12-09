@@ -1,0 +1,47 @@
+<div class="container">
+  <h2>投稿画面</h2>
+  <div class="row">
+    <%= form_with model: @question, local: true do |f| %>
+
+    <!--エラー文-->
+    <% if @question.errors.any? %>
+      <div class="alert alert-warning">
+        <ul>
+          <% @question.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <!--投稿画像-->
+    <div class="col-md-5">
+      <%= attachment_image_tag @question, :image, :fill, 300, 200, fallback: "no_image.png" %><br>
+      <%= f.attachment_field :image %>
+    </div>
+    <div class="col-md-7">
+
+      <!--タイトル-->
+      <div class="form-group">
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_field :title %><br>
+      </div>
+
+      <!--説明-->
+      <div class="form-group">
+        <%= f.label :body, "本文" %>
+        <%= f.text_area :body, rows: 5 %><br>
+      </div>
+
+      <!--ジャンル-->
+      <div class="form-group">
+        <%= f.label :genre_id, "ジャンル" %>
+        <%= f.select :genre_id, Genre.all.map{|t| [t.name, t.id]}, {include_blank: '--選択してください--'} %><br>
+      </div>
+    </div>
+    <div class="col-md-2 offset-2">
+      <%= f.submit "投稿する", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+</div>
