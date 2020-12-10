@@ -36,7 +36,8 @@ https://docs.google.com/spreadsheets/d/1THrGVhqoSPzDt2TeRiqBzjnhTmYUkrPc0F9AEk7S
 ## 使用素材
 - ぱくたそ https://www.pakutaso.com/
 - O-DAN http://o-dan.net/ja/
-- morguefile https://morguefile.com/
+- いらすとや https://www.irasutoya.com/
+- illustAC https://www.ac-illust.com/
 - Font Free http://fontfree.me/
 - ICOOON MONO http://icooon-mono.com/
 - designevo https://www.designevo.com/
