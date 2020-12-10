@@ -37,6 +37,35 @@ body {
   background-color: #f5f3f2;
 }
 
+#container{
+  height: 700px;
+}
+
+.top-image1 {
+  background-image: url(top-image1.jpg);
+}
+.top-image2 {
+  background-image: url(top-image2.jpg);
+}
+.top-image3 {
+  background-image: url(top-image3.jpg);
+}
+.top-image4 {
+  background-image: url(top-image4.jpg);
+}
+
+.title-center {
+  text-align: center;
+}
+
+.top-questions {
+  h1 {
+    text-align: center;
+  }
+  width: 80%;
+  margin: 40px auto;
+}
+
 .question-table {
   column-count: 2;
   .question-block {

@@ -1,7 +1,7 @@
 <div class="container">
   <h2>投稿画面</h2>
   <div class="row">
-    <%= form_with model: @question, local: true do |f| %>
+    <%= form_with model: @question, url: questions_path, method: :post, local: true do |f| %>
 
     <!--エラー文-->
     <% if @question.errors.any? %>
