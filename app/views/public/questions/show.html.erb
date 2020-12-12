@@ -36,7 +36,14 @@
                 <%= attachment_image_tag(answer.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60') %>
       					<%= answer.user.name %>さん
               <% end %><br>
-              <%= answer.answer %>
+              <%= answer.answer %><br>
+              <div>
+                <% if answer.user == current_user %>
+                  <div>
+                    <%= link_to "削除する", question_answer_path(answer.question, answer), method: :delete, class: "btn btn-danger pull-right" %>
+                  </div>
+                <% end %>
+              </div>
             </li>
           <% end %>
         </ul>

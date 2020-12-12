@@ -8,6 +8,8 @@ class Public::AnswersController < ApplicationController
   end
 
   def destroy
+    Answer.find_by(id: params[:id], question_id: params[:question_id]).destroy
+    redirect_to request.referer
   end
 
   private
