@@ -15,6 +15,15 @@
         <% end %><br>
 
         <ul class="list-inline">
+          <% if @question.liked_by?(current_user) %>
+           <li>
+             <%= link_to @question.likes.count , question_like_path(@question,current_user), method: :delete , class: "glyphicon glyphicon-heart" %>
+           </li>
+          <% else %>
+            <li>
+              <%= link_to @question.likes.count ,question_likes_path(@question), method: :post, class: "glyphicon glyphicon-heart-empty" %>
+            </li>
+          <% end %>
           <li>コメント<%= @question.answers.count %>件</li>
           <% if @question.user == current_user %>
             <li>
@@ -54,7 +63,7 @@
         <%= form_with(model:[@question, @answer], local: true) do |f| %>
           <div class="row">
             <div class="col-sm-12">
-              <%= f.text_area :answer, rows:'5', class: "form-control", placeholder: "回答はこちら" %>
+              <%= f.text_area :answer, rows: '5', class: "form-control", placeholder: "回答はこちら" %>
             </div>
           </div>
           <%= f.submit "送信する", class: "btn btn-success btn-lg pull-right" %>
