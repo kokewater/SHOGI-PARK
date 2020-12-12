@@ -66,11 +66,11 @@ body {
   margin: 40px auto;
 }
 
-.question-table {
+.table-two-rows {
   column-count: 2;
-  .question-block {
+  .block-two-rows {
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 15px;
     break-inside: avoid;
     margin-bottom: 20px;
   }

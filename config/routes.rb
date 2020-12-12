@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       resources :relationships, only: [:create, :destroy]
       member do
         get :quit
-        get :out
+        put :out
       end
     end
     resources :questions do

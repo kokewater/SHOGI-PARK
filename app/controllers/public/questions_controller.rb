@@ -21,7 +21,7 @@ class Public::QuestionsController < ApplicationController
   end
 
   def sort
-    @questions = Question.all.includes(:user)
+    @questions = Question.where(genre_id: params[:genre_id])
     @genres = Genre.all
     @genre = Genre.find(params[:genre_id])
   end
@@ -29,6 +29,7 @@ class Public::QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @genres = Genre.all
+    @answer = Answer.new
   end
 
   def edit
