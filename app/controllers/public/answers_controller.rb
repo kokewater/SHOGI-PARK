@@ -1,7 +1,7 @@
 class Public::AnswersController < ApplicationController
   def create
     question = Question.find(params[:question_id])
-    answer = current_user.answer.new(answer_params)
+    answer = current_user.answers.new(answer_params)
     answer.question_id = question.id
     answer.save
     redirect_to request.referer
