@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <%= render 'left_column', genres: @genres %>
+    </div>
+    <div class="col-sm-9">
+      <div class="question-show">
+        <%= attachment_image_tag(@question, :image, width: "100%", fallback: "no_image.jpg") %>
+        タイトル：<%= @question.title %><br>
+        質問：<%= @question.body %><br>
+
+        <%= link_to user_path(@question.user) do %>
+          <%= attachment_image_tag(@question.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.png") %>
+          <%= @question.user.name %>さん
+        <% end %><br>
+
+        <ul class="list-inline" id="question_<%= @question.id %>">
+
+          <!--いいねボタン-->
+          <li class="like-btn">
+            <%= render 'public/likes/like-btn', question: @question %>
+          </li>
+
+          <li>コメント<%= @question.answers.count %>件</li>
+          <% if @question.user == current_user %>
+            <li>
+              <%= link_to '編集する', edit_question_path(@question), class: "btn btn-primary pull-right" %>
+            </li>
+            <li>
+              <%= link_to '削除する', question_path(@question), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"},
+              class: "btn btn-danger pull-right" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <!--回答表示-->
+      <div class="question-show">
+        <ul class="answer-table">
+          <%= render 'public/answers/answer-table', question: @question %>
+        </ul>
+      </div>
+
+      <!--回答入力フォーム-->
+      <div>
+        <%= form_with(model:[@question, @answer], method: :post, remote: true) do |f| %>
+          <div class="row">
+            <div class="col-sm-12">
+              <%= f.text_area :answer, rows: '5', class: "form-control", placeholder: "回答はこちら", remote: true %>
+            </div>
+          </div>
+          <%= f.submit "送信する", class: "btn btn-success pull-right" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

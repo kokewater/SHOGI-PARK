@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h3>ジャンル編集</h3>
+    </div>
+  </div>
+  <!--ジャンル追加-->
+  <div class="row">
+    <div class="col-md-6">
+      <%= form_with model:[:admin, @genre], local:true do |f| %>
+
+        <!--エラー文-->
+        <% if @genre.errors.any? %>
+          <div class="alert alert-warning">
+            <ul>
+              <% @genre.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= f.label :name, "ジャンル" %>
+        <%= f.text_field :name %>
+        <%= f.submit "変更を保存する", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
