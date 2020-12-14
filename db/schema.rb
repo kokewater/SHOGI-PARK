@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_070941) do
+ActiveRecord::Schema.define(version: 2020_12_14_115315) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_12_14_070941) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "relationsihps", force: :cascade do |t|
+  create_table "relationships", force: :cascade do |t|
     t.integer "following_id"
     t.integer "follower_id"
     t.datetime "created_at", null: false
