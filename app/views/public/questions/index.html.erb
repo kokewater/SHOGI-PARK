@@ -23,7 +23,7 @@
     							<%= question.user.name %>さん
     						<% end %>
 						  </li>
-
+              <li>(<%= question.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)</li>
             </div>
           </div>
         <% end %>

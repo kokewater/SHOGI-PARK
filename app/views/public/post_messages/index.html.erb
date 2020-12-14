@@ -16,6 +16,7 @@
             </td>
             <td>
               <%= post_message.message %>
+              (<%= post_message.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)
             </td>
           </tr>
         <% end %>
@@ -24,7 +25,7 @@
       <!--掲示板投稿-->
       <%= form_with model: @post_message, url: post_messages_path, method: :post, local: true do |f| %>
         <div class="form-group">
-          <%= f.label :message, "本文" %>
+          <%= f.label :message, "投稿する" %>
           <%= f.text_area :message, rows: 5, class: "form-control" %>
         </div>
 

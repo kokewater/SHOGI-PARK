@@ -13,7 +13,7 @@
           <%= attachment_image_tag(@question.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.png") %>
           <%= @question.user.name %>さん
         <% end %>
-        
+
         <% if current_user != @question.user %>
           <% if @question.user.followed_by?(current_user) %>
             <p><%=link_to "フォロー済み", user_relationships_path(@question.user.id), method: :delete %></p>
@@ -24,21 +24,21 @@
 
         <ul class="list-inline" id="question_<%= @question.id %>">
 
+          <li>(<%= @question.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)</li>
+
+          <li class="comments-count">コメント<%= @question.answers.count %>件</li>
+
           <!--いいねボタン-->
           <li class="like-btn">
             <%= render 'public/likes/like-btn', question: @question %>
           </li>
-
-          <li>コメント<%= @question.answers.count %>件</li>
-          <% if @question.user == current_user %>
-            <li>
+          <div>
+            <!--質問編集削除-->
+            <% if @question.user == current_user %>
               <%= link_to '編集する', edit_question_path(@question), class: "btn btn-primary pull-right" %>
-            </li>
-            <li>
-              <%= link_to '削除する', question_path(@question), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"},
-              class: "btn btn-danger pull-right" %>
-            </li>
-          <% end %>
+              <%= link_to '削除する', question_path(@question), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger pull-right" %>
+            <% end %>
+          </div>
         </ul>
       </div>
 

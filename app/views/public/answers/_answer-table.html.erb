@@ -1,16 +1,25 @@
 <% question.answers.each do |answer| %>
   <li>
-    <%= link_to user_path(answer.user.id) do %>
-      <%= attachment_image_tag(answer.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60') %>
-      <%= answer.user.name %>さん
-    <% end %><br>
-    <%= answer.answer %><br>
-    <div>
-      <% if answer.user == current_user %>
-        <div>
-          <%= link_to "削除する", question_answer_path(question, answer), method: :delete, class: "btn btn-danger pull-right", remote: true %>
-        </div>
-      <% end %>
+    <div class="table">
+      <tr>
+        <td>
+          <%= link_to user_path(answer.user.id) do %>
+            <%= attachment_image_tag(answer.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60') %>
+            <%= answer.user.name %>さん
+          <% end %>
+        </td>
+        <td>
+          <%= answer.answer %>
+        </td>
+
+        <td>
+          <% if answer.user == current_user %>
+            <div>
+              <%= link_to "削除する", question_answer_path(question, answer), method: :delete, class: "btn btn-danger pull-right", remote: true %>
+            </div>
+          <% end %>
+        </td>
+      </tr>
     </div>
   </li>
 <% end %>
