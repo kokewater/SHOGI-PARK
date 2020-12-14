@@ -4,7 +4,13 @@
       <%= render 'public/questions/left_column', genres: @genres %>
     </div>
     <div class="col-sm-9">
-      <h2>マイページ</h2>
+      <h2>
+        <% if @user == current_user %>
+          マイページ
+        <% else %>
+          <%= @user.name %>さんのページ
+        <% end %>
+      </h2>
       <div class="row">
         <div class="col-sm-6">
           <%= attachment_image_tag(@user, :profile_image, width: "100%", fallback: "no-image-icon.png") %>
@@ -12,6 +18,7 @@
         <div class="col-sm-6">
           名前：<%= @user.name %><br>
           自己紹介：<%= @user.introduction = @user.introduction || "自己紹介はまだ書かれていません" %><br>
+          
           <% if @user == current_user %>
             <%= link_to '編集する', edit_user_path(current_user), class: "btn btn-primary btn-lg" %>
             <%= link_to '退会する', quit_user_path(current_user), class: "btn btn-danger btn-lg" %>

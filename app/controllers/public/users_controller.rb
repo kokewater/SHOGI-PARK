@@ -37,6 +37,16 @@ class Public::UsersController < ApplicationController
     redirect_to root_path
   end
   
+  def follows
+    user = User.find(params[:id])
+    @users = user.followings
+  end
+  
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
+  end
+  
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
