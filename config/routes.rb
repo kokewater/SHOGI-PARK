@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :admin, controllers: {
-    sessions: 'admin/sessions',
+    sessions: 'admin/sessions'
   }
   namespace :admin do
     get 'top' => 'homes#top'
     resources :users, only: [:index, :edit, :update]
-    resources :genres, only: [:index, :create, :edit, :update, :destroy]
+    resources :genres, only: [:index, :create, :edit, :update]
     resources :questions, only: [:index, :show, :destroy] do
       resources :answers, only: [:destroy]
     end
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     sessions: 'public/sessions',
-    registrations: 'public/registrations',
+    registrations: 'public/registrations'
   }
 
   scope module: :public do

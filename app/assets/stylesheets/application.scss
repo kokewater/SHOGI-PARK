@@ -77,7 +77,9 @@ body {
 
 .question-show {
   background-color: #fff;
-  margin-top: 40px;
+  margin-top: 50px;
   border-radius: 15px;
+  ul {
+    margin-bottom: 0;
+  }
 }
-

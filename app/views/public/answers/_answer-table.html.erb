@@ -7,19 +7,15 @@
             <%= attachment_image_tag(answer.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60') %>
             <%= answer.user.name %>さん
           <% end %>
-        </td>
+        </td><br>
         <td>
           <%= answer.answer %>
         </td>
-
-        <td>
-          <% if answer.user == current_user %>
-            <div>
-              <%= link_to "削除する", question_answer_path(question, answer), method: :delete, class: "btn btn-danger pull-right", remote: true %>
-            </div>
-          <% end %>
-        </td>
       </tr>
+      <% if answer.user == current_user %>
+        <%= link_to "コメントを削除", question_answer_path(question, answer), method: :delete, class: "btn btn-danger btn-xs pull-right", remote: true %>
+      <% end %>
     </div>
+    <hr>
   </li>
 <% end %>

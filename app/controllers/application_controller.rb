@@ -4,9 +4,10 @@ class ApplicationController < ActionController::Base
 
   private
   def after_sign_in_path_for(resource)
-    if resource == :admin
+    case resource
+    when Admin
       admin_top_path
-    else
+    when User
       questions_path
     end
   end
