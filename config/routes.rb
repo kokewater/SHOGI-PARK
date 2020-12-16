@@ -26,6 +26,8 @@ Rails.application.routes.draw do
       member do
         get :quit
         put :out
+        get :follows
+        get :followers
       end
     end
     resources :questions do

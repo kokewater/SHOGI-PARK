@@ -32,7 +32,7 @@
           <li class="like-btn">
             <%= render 'public/likes/like-btn', question: @question %>
           </li>
-          
+
         </ul>
       </div>
       <div>
@@ -43,15 +43,19 @@
         <% end %>
       </div>
 
+
+
       <!--回答表示-->
-      <div class="question-show">
+      <div>
         <ul class="answer-table">
+          <h2 class="text-center">＜回答一覧＞</h2>
           <%= render 'public/answers/answer-table', question: @question %>
         </ul>
       </div>
 
       <!--回答入力フォーム-->
       <div>
+        <h2 class="text-center">＜回答を書く＞</h2>
         <%= form_with(model:[@question, @answer], method: :post, remote: true) do |f| %>
           <div class="row">
             <div class="col-sm-12">

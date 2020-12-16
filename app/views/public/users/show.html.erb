@@ -16,12 +16,28 @@
           <%= attachment_image_tag(@user, :profile_image, width: "100%", fallback: "no-image-icon.png") %>
         </div>
         <div class="col-sm-6">
-          名前：<%= @user.name %><br>
-          自己紹介：<%= @user.introduction = @user.introduction || "自己紹介はまだ書かれていません" %><br>
-          
+          <table class=table>
+            <tr>
+              <th>名前：</th>
+              <th><%= @user.name %></th>
+            </tr>
+            <tr>
+              <th>自己紹介：</th>
+              <th><%= @user.introduction = @user.introduction || "自己紹介はまだ書かれていません" %></th>
+            </tr>
+            <tr>
+              <th>フォロー中</th>
+              <th><%= link_to @user.followings.count, follows_user_path(@user.id) %></th>
+            </tr>
+            <tr>
+              <th>フォロワー</th>
+              <th><%= link_to @user.followers.count, followers_user_path(@user.id) %></th>
+            </tr>
+          </table>
+
           <% if @user == current_user %>
-            <%= link_to '編集する', edit_user_path(current_user), class: "btn btn-primary btn-lg" %>
-            <%= link_to '退会する', quit_user_path(current_user), class: "btn btn-danger btn-lg" %>
+            <%= link_to '編集する', edit_user_path(current_user), class: "btn btn-primary" %>
+            <%= link_to '退会する', quit_user_path(current_user), class: "btn btn-danger" %>
           <% end %>
         </div>
       </div>

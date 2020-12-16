@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/944f4ad3ab.js" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -22,7 +22,7 @@
               <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
             </ul>
           <% elsif user_signed_in? %>
-            <%= link_to image_tag("logo.png"), root_path, class: "logo" %>
+            <%= link_to image_tag("logo.png"), root_path, class: "logo", data: {"turbolinks"=>false} %>
             <ul class="nav navbar-nav navbar-right">
               <p class="navbar-text">ようこそ、<%= current_user.name %>さん!</p>
               <li><%= link_to 'マイページ', user_path(current_user) %></li>
@@ -31,7 +31,7 @@
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             </ul>
           <% else %>
-            <%= link_to image_tag("logo.png"), root_path, class: "logo" %>
+            <%= link_to image_tag("logo.png"), root_path, class: "logo", data: {"turbolinks"=>false} %>
             <ul class="nav navbar-nav navbar-right" style >
               <li><%= link_to 'サイト紹介', about_path %></li>
               <li><%= link_to '質問一覧', questions_path %></li>

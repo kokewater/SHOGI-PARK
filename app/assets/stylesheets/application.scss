@@ -61,6 +61,7 @@ body {
   margin: 40px auto;
 }
 
+// 投稿やuserを2列にする
 .table-two-rows {
   column-count: 2;
   .block-two-rows {
@@ -79,7 +80,23 @@ body {
   background-color: #fff;
   margin-top: 50px;
   border-radius: 15px;
+  word-break: break-word;
   ul {
     margin-bottom: 0;
+  }
+}
+
+.answer-table {
+  margin-top: 50px;
+  list-style: none;
+  padding : 0;
+  .answer-single {
+    background-color: #fff;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    word-break: break-word;
+    .answer-text {
+      padding: 20px;
+    }
   }
 }
