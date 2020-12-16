@@ -4,23 +4,23 @@
       <%= render 'public/questions/left_column', genres: @genres %>
     </div>
     <div class="col-sm-9">
-      <h2>将棋情報掲示板</h2>
-      <table class="table table-striped">
+      <h2 class="text-center">将棋情報掲示板</h2>
+      <ol class="message-list">
         <% @post_messages.each do |post_message| %>
-          <tr>
-            <td>
+          <li>
+            <div>
               <%= link_to user_path(post_message.user) do %>
   							<%= attachment_image_tag(post_message.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60') %>
-  							<%= post_message.user.name %>
+  							<%= post_message.user.name %>さん
   						<% end %>
-            </td>
-            <td>
+  						(<%= post_message.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)
+            </div>
+            <div>
               <%= post_message.message %>
-              (<%= post_message.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)
-            </td>
-          </tr>
+            </div>
+          </li>
         <% end %>
-      </table>
+      </ol>
 
       <!--掲示板投稿-->
       <%= form_with model: @post_message, url: post_messages_path, method: :post, local: true do |f| %>

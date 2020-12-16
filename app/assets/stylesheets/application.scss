@@ -67,17 +67,19 @@ body {
   .block-two-rows {
     background-color: #fff;
     border-radius: 15px;
-    break-inside: avoid;
+    padding: 20px;
     margin-bottom: 20px;
+    break-inside: avoid;
   }
 }
 
 .new-question-button {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .question-show {
   background-color: #fff;
+  padding: 20px;
   margin-top: 50px;
   border-radius: 15px;
   word-break: break-word;
@@ -98,5 +100,14 @@ body {
     .answer-text {
       padding: 20px;
     }
+  }
+}
+
+.message-list {
+  background-color: #fff;
+  border-radius: 15px;
+  li {
+    word-break: break-word;
+    margin-bottom: 20px;
   }
 }

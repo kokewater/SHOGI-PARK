@@ -11,6 +11,8 @@ class Public::PostMessagesController < ApplicationController
     if @post_message.save
       redirect_to request.referer
     else
+      @genres = Genre.all
+      @post_messages = PostMessage.all
       render :index
     end
   end
