@@ -55,6 +55,8 @@ class Public::QuestionsController < ApplicationController
   end
 
   def search
+    @genres = Genre.all
+    @questions = Question.sort(params[:keyword])
   end
 
   private

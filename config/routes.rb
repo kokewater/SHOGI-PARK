@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     sessions: 'public/sessions',
     registrations: 'public/registrations'
   }
+  
 
   scope module: :public do
     root 'homes#top'
@@ -40,5 +41,6 @@ Rails.application.routes.draw do
     end
     resources :post_messages, only: [:index, :create]
   end
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

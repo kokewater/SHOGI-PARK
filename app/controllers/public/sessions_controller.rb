@@ -24,7 +24,7 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  
+
   before_action :reject_user, only: [:create]
 
   protected
@@ -40,4 +40,5 @@ class Public::SessionsController < Devise::SessionsController
       flash[:error] = "必須項目を入力してください。"
     end
   end
+
 end

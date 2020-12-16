@@ -5,6 +5,15 @@
     </div>
     <div class="col-sm-9">
       <h2>質問一覧(全<%= @questions.count %>件)</h2>
+
+      <%= form_with model: @question, url: search_questions_path, method: :get, local: true do |f| %>
+        <%= f.select :keyword, [ ['投稿が新しい順', 'new'],
+                                    ['投稿が古い順', 'old'],
+                                    ['いいねが多い順', 'likes']
+                                    ] %>
+        <%= f.submit '変更する' %>
+      <% end %>
+
       <%= render 'questions_list', questions: @questions %>
     </div>
   </div>

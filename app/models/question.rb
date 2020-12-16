@@ -12,4 +12,15 @@ class Question < ApplicationRecord
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end
+  
+  def self.sort(keyword)
+    case keyword
+    when 'new'
+      return all.order(created_at: :DESC)
+    when 'old'
+      return all.order(created_at: :ASC)
+    when 'likes'
+      return find(Like.group(:question_id).order(Arel.sql('count(question_id) desc')).pluck(:question_id))
+    end
+  end
 end
