@@ -10,7 +10,8 @@ class Public::QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user_id = current_user.id
     if @question.save
-      redirect_to question_path(@question), notice: "投稿しました"
+      flash[:success] = "質問を投稿しました"
+      redirect_to question_path(@question)
     else
       render :new
     end
@@ -43,7 +44,8 @@ class Public::QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     if @question.update(question_params)
-      redirect_to question_path(@question), notice: "編集しました！"
+      flash[:success] = "質問を編集しました"
+      redirect_to question_path(@question)
     else
       render :edit
     end

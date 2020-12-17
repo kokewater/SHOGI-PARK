@@ -35,7 +35,7 @@ class Public::UsersController < ApplicationController
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    flash[:notice] = "「SHOGI-PARK」をご利用ありがとうございました"
+    flash[:info] = "「SHOGI-PARK」をご利用ありがとうございました"
     redirect_to root_path
   end
 
