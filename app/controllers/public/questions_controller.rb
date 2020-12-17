@@ -1,5 +1,6 @@
 class Public::QuestionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :guest_user, only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @question = Question.new
@@ -42,7 +43,7 @@ class Public::QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     if @question.update(question_params)
-      redirect_to question_path(@question), notice: "編集しました"
+      redirect_to question_path(@question), notice: "編集しました！"
     else
       render :edit
     end

@@ -38,8 +38,8 @@
       <div>
         <!--質問編集削除-->
         <% if @question.user == current_user %>
-          <%= link_to '編集する', edit_question_path(@question), class: "btn btn-primary pull-right" %>
           <%= link_to '削除する', question_path(@question), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger pull-right" %>
+          <%= link_to '編集する', edit_question_path(@question), class: "btn btn-primary pull-right" %>
         <% end %>
       </div>
 

@@ -1,4 +1,7 @@
 class Public::PostMessagesController < ApplicationController
+  
+  before_action :guest_user, only: [:create]
+  
   def index
     @genres = Genre.all
     @post_messages = PostMessage.all

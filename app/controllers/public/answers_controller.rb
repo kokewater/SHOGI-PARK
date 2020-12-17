@@ -1,4 +1,6 @@
 class Public::AnswersController < ApplicationController
+  before_action :guest_user, only: [:create, :destroy]
+  
   def create
     @question = Question.find(params[:question_id])
     answer = current_user.answers.new(answer_params)

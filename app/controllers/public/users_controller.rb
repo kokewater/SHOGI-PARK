@@ -1,4 +1,6 @@
 class Public::UsersController < ApplicationController
+  before_action :guest_user, only: [:edit, :update, :quit, :out]
+
   def show
     @user = User.find(params[:id])
     @genres = Genre.all
@@ -36,17 +38,17 @@ class Public::UsersController < ApplicationController
     flash[:notice] = "「SHOGI-PARK」をご利用ありがとうございました"
     redirect_to root_path
   end
-  
+
   def follows
     user = User.find(params[:id])
     @users = user.followings
   end
-  
+
   def followers
     user = User.find(params[:id])
     @users = user.followers
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)

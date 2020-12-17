@@ -17,7 +17,11 @@ Rails.application.routes.draw do
     sessions: 'public/sessions',
     registrations: 'public/registrations'
   }
-  
+
+  devise_scope :user do
+    post 'users/guest_sign_in' => 'public/sessions#new_guest'
+  end
+
 
   scope module: :public do
     root 'homes#top'
@@ -41,6 +45,6 @@ Rails.application.routes.draw do
     end
     resources :post_messages, only: [:index, :create]
   end
-  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

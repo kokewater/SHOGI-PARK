@@ -2,6 +2,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def guest_user
+    @user = User.find_by(email: 'guest@example.com')
+    if @user == current_user
+      flash[:warning] = '※ゲストユーザーは編集・投稿が出来ません'
+      redirect_to request.referer
+    end
+  end
+
   private
   def after_sign_in_path_for(resource)
     case resource
