@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>ShogiPark</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,47 +11,14 @@
   </head>
 
   <body>
-    <header>
-      <nav class="navbar navbar-fixed-top navbar-custom">
-        <div class="container">
-          <% if admin_signed_in? %>
-            <%= link_to image_tag("logo.png"), admin_top_path, class: "logo" %>
-            <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to '質問一覧', admin_questions_path %></li>
-              <li><%= link_to 'ユーザー一覧', admin_users_path %></li>
-              <li><%= link_to 'ジャンル管理', admin_genres_path %></li>
-              <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
-            </ul>
-          <% elsif user_signed_in? %>
-            <%= link_to image_tag("logo.png"), root_path, class: "logo", data: {"turbolinks"=>false} %>
-            <ul class="nav navbar-nav navbar-right">
-              <p class="navbar-text">ようこそ、<%= current_user.name %>さん!</p>
-              <li><%= link_to 'マイページ', user_path(current_user) %></li>
-              <li><%= link_to '質問一覧', questions_path %></li>
-              <li><%= link_to 'ユーザー一覧', users_path %></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-            </ul>
-          <% else %>
-            <%= link_to image_tag("logo.png"), root_path, class: "logo", data: {"turbolinks"=>false} %>
-            <ul class="nav navbar-nav navbar-right" style >
-              <li><%= link_to 'サイト紹介', about_path %></li>
-              <li><%= link_to '質問一覧', questions_path %></li>
-              <li><%= link_to '新規登録', new_user_registration_path %></li>
-              <li><%= link_to 'ログイン', new_user_session_path %></li>
-            </ul>
-          <% end %>
-        </div>
-      </nav>
-    </header>
-
+    <%= render 'layouts/header' %>
 
     <main>
       <%= yield %>
     </main>
 
     <footer>
-      SHOGI-PARK
+      Copyright © 2020 SHOGI-PARK All Rights Reserved.
     </footer>
-
   </body>
 </html>
