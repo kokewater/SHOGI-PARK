@@ -1,11 +1,17 @@
 class Public::AnswersController < ApplicationController
   before_action :guest_user, only: [:create, :destroy]
-  
+
   def create
     @question = Question.find(params[:question_id])
     answer = current_user.answers.new(answer_params)
     answer.question_id = @question.id
     answer.save
+  end
+
+  def update
+    Answer.find_by(id: params[:id], question_id: params[:question_id]).update(best_answer_params)
+    @question = Question.find(params[:question_id])
+    redirect_to request.referer
   end
 
   def destroy
@@ -16,5 +22,9 @@ class Public::AnswersController < ApplicationController
   private
   def answer_params
     params.require(:answer).permit(:answer)
+  end
+
+  def best_answer_params
+    params.require(:answer).permit(:is_best_answered)
   end
 end

@@ -40,7 +40,7 @@ Rails.application.routes.draw do
         get :sort
         get :search
       end
-      resources :answers, only: [:create, :destroy]
+      resources :answers, only: [:create, :update, :destroy]
       resources :likes, only: [:create, :destroy]
     end
     resources :post_messages, only: [:index, :create]
