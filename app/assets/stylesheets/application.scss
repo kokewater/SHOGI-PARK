@@ -104,6 +104,10 @@ footer {
   }
 }
 
+.genre-child {
+  font-size: 25px;
+}
+
 .new-question-button {
   margin-bottom: 15px;
 }
@@ -144,6 +148,14 @@ footer {
 }
 
 // レスポンシブデザイン
+@media screen and (max-width: 992px) {
+
+  // ジャンル一覧２列
+  .genre-list {
+    column-count: 2;
+  }
+}
+
 @media screen and (max-width: 768px) {
 
   body {

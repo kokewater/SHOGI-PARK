@@ -1,7 +1,7 @@
-<div class="list-group list-unstyled">
-  <h2 class="text-center">ジャンル検索</h2>
+<h2 class="text-center">ジャンル検索</h2>
+<div class="list-group list-unstyled genre-list text-center">
   <% genres.each do |genre| %>
-    <li class="text-center">
+    <li class="genre-child">
       <%= link_to genre.name, sort_questions_path(genre_id: genre.id) %>
     </li>
   <% end %>
