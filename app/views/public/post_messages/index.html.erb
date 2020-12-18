@@ -1,9 +1,9 @@
 <div class="container message-body">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-md-3">
       <%= render 'public/questions/left_column', genres: @genres %>
     </div>
-    <div class="col-sm-9">
+    <div class="col-md-9">
       <h2 class="text-center">将棋情報掲示板</h2>
       <ol class="message-list">
         <% @post_messages.each do |post_message| %>
@@ -20,6 +20,7 @@
             </div>
           </li>
         <% end %>
+        <%= paginate @post_messages %>
       </ol>
 
       <!--掲示板投稿-->

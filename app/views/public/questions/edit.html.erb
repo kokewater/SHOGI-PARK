@@ -15,12 +15,12 @@
     <% end %>
 
     <!--投稿画像-->
-    <div class="col-sm-5">
+    <div class="col-md-5">
       <%= attachment_image_tag @question, :image, :fill, 300, 200, fallback: "no_image.png" %><br>
       <%= f.attachment_field :image %>
     </div>
 
-    <div class="col-sm-7">
+    <div class="col-md-7">
       <!--タイトル-->
       <div class="form-group">
         <%= f.label :title, "タイトル" %>
@@ -38,12 +38,12 @@
         <%= f.label :genre_id, "ジャンル" %>
         <%= f.select :genre_id, Genre.all.map{|t| [t.name, t.id]}, {include_blank: '--選択してください--'} %><br>
       </div>
-      
+
       <div>
         <%= f.submit "編集する", class: "btn btn-primary" %>
       </div>
     </div>
-    
+
     <% end %>
   </div>
 </div>

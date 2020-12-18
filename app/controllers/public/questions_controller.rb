@@ -18,12 +18,12 @@ class Public::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all.includes(:user)
+    @questions = Question.includes(:user).page(params[:page]).per(10).reverse_order
     @genres = Genre.all
   end
 
   def sort
-    @questions = Question.where(genre_id: params[:genre_id])
+    @questions = Question.includes(:user).where(genre_id: params[:genre_id]).page(params[:page]).reverse_order
     @genres = Genre.all
     @genre = Genre.find(params[:genre_id])
   end
@@ -59,7 +59,8 @@ class Public::QuestionsController < ApplicationController
 
   def search
     @genres = Genre.all
-    @questions = Question.sort(params[:keyword])
+    @questions = Question.includes(:user).sort(params[:keyword])
+    @questions = Kaminari.paginate_array(@questions).page(params[:page])
   end
 
   private

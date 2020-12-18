@@ -7,7 +7,7 @@ class Public::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(12)
     @genres = Genre.all
   end
 
@@ -41,12 +41,12 @@ class Public::UsersController < ApplicationController
 
   def follows
     user = User.find(params[:id])
-    @users = user.followings
+    @users = user.followings.page(params[:page]).per(12)
   end
 
   def followers
     user = User.find(params[:id])
-    @users = user.followers
+    @users = user.followers.page(params[:page]).per(12)
   end
 
   private

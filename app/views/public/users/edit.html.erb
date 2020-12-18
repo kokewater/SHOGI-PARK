@@ -14,12 +14,12 @@
       <% end %>
 
       <!--投稿画像-->
-      <div class="col-sm-4">
+      <div class="col-md-4">
         <%= attachment_image_tag(@user, :profile_image, width: "100%", fallback: "no-image-icon.png") %><br>
         <%= f.attachment_field :profile_image %>
       </div>
 
-      <div class="col-sm-4">
+      <div class="col-md-4">
 
         <!--名前-->
         <div class="form-group">

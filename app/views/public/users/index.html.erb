@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-md-3">
       <%= render 'public/questions/left_column', genres: @genres %>
     </div>
-    <div class="col-sm-9">
+    <div class="col-md-9">
       <h2>ユーザー一覧(全<%= @users.count %>人)</h2>
       <div class="table-two-rows">
         <% @users.each do |user| %>
@@ -23,6 +23,7 @@
             <% end %>
           </div>
         <% end %>
+        <%= paginate @users %>
       </div>
     </div>
   </div>
