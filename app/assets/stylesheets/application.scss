@@ -23,6 +23,15 @@
   box-sizing: border-box;
 }
 
+h2 {
+  font-size: 45px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  text-decoration: underline double;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -86,14 +95,7 @@ footer {
   background-image: image-url('top-image4.jpg');
 }
 
-.title-center {
-  text-align: center;
-}
-
 .top-questions {
-  h1 {
-    text-align: center;
-  }
   width: 80%;
   margin: 40px auto;
 }
@@ -110,18 +112,32 @@ footer {
   }
 }
 
-.genre-child {
-  font-size: 25px;
+.genre-list {
+  padding-left: 25px;
+  li {
+    font-size: 25px;
+  }
 }
 
 .new-question-button {
   margin-bottom: 15px;
 }
 
+// 入力フォームcss
+.form-center {
+  padding: 15px 30%;
+  align-items: center;
+  text-align: center;
+}
+
+.form-image {
+  margin: 10px auto;
+}
+
 .question-show {
   background-color: #fff;
   padding: 20px;
-  margin-top: 50px;
+  margin-top: 20px;
   border-radius: 15px;
   word-break: break-word;
   ul {
@@ -161,8 +177,23 @@ footer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    .genre-child {
+    li {
       margin: 5px;
+    }
+  }
+
+  .sidebar-title-center{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .sidebar-btn-center {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    div {
+      margin: 10px;
     }
   }
 }

@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
+    <h2>ユーザー一覧(全<%= @users.count %>人)</h2>
     <div class="col-md-3">
       <%= render 'public/questions/left_column', genres: @genres %>
     </div>
     <div class="col-md-9">
-      <h2>ユーザー一覧(全<%= @users.count %>人)</h2>
       <div class="table-two-rows">
         <% @users.each do |user| %>
           <div class="block-two-rows">

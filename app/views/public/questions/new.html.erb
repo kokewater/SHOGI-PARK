@@ -1,8 +1,7 @@
 <div class="container">
-  <h2>投稿画面</h2>
   <div class="row">
+    <h2>質問投稿</h2>
     <%= form_with model: @question, url: questions_path, method: :post, local: true do |f| %>
-
     <!--エラー文-->
     <% if @question.errors.any? %>
       <div class="alert alert-warning">
@@ -15,33 +14,34 @@
     <% end %>
 
     <!--投稿画像-->
-    <div class="col-md-5">
-      <%= attachment_image_tag @question, :image, :fill, 300, 200, fallback: "no_image.png" %><br>
-      <%= f.attachment_field :image %>
-    </div>
-    <div class="col-md-7">
-
-      <!--タイトル-->
-      <div class="form-group">
-        <%= f.label :title, "タイトル" %>
-        <%= f.text_field :title, class: "form-control" %><br>
-      </div>
-
-      <!--説明-->
-      <div class="form-group">
-        <%= f.label :body, "本文" %>
-        <%= f.text_area :body, rows: 5, class: "form-control" %><br>
-      </div>
-
-      <!--ジャンル-->
-      <div class="form-group">
-        <%= f.label :genre_id, "ジャンル" %>
-        <%= f.select :genre_id, Genre.all.map{|t| [t.name, t.id]}, {include_blank: '--選択してください--'} %><br>
-      </div>
-
+    <div class="form-center" >
       <div>
-        <%= f.submit "投稿する", class: "btn btn-primary" %>
+        <%= attachment_image_tag @question, :image, width: "100%", fallback: "no_image.png" %>
+        <%= f.attachment_field :image, class: "form-image" %>
       </div>
+
+    </div>
+
+    <!--タイトル-->
+    <div class="form-center">
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <!--説明-->
+    <div class="form-center">
+      <%= f.label :body, "本文" %>
+      <%= f.text_area :body, rows: 5, class: "form-control" %>
+    </div>
+
+    <!--ジャンル-->
+    <div class="form-center">
+      <%= f.label :genre_id, "ジャンル" %>
+      <%= f.select :genre_id, Genre.all.map{|t| [t.name, t.id]}, {include_blank: '--選択してください--'} %>
+    </div>
+
+    <div class="form-center">
+      <%= f.submit "投稿する", class: "btn btn-primary" %>
     </div>
     <% end %>
   </div>

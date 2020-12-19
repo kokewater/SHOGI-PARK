@@ -1,10 +1,10 @@
 <div class="container message-body">
   <div class="row">
+    <h2>将棋情報掲示板</h2>
     <div class="col-md-3">
       <%= render 'public/questions/left_column', genres: @genres %>
     </div>
     <div class="col-md-9">
-      <h2 class="text-center">将棋情報掲示板</h2>
       <ol class="message-list">
         <% @post_messages.each do |post_message| %>
           <li>

@@ -1,6 +1,6 @@
 <div class="container">
-  <h2>編集画面</h2>
   <div class="row">
+    <h2>編集画面</h2>
     <%= form_with model: @question, url: question_path(@question) ,local: true do |f| %>
 
     <!--エラー文-->
@@ -15,33 +15,32 @@
     <% end %>
 
     <!--投稿画像-->
-    <div class="col-md-5">
+    <div class="form-center">
       <%= attachment_image_tag @question, :image, :fill, 300, 200, fallback: "no_image.png" %><br>
-      <%= f.attachment_field :image %>
+      <%= f.attachment_field :image, class: "form-image" %>
     </div>
 
-    <div class="col-md-7">
-      <!--タイトル-->
-      <div class="form-group">
-        <%= f.label :title, "タイトル" %>
-        <%= f.text_field :title, class: "form-control" %><br>
-      </div>
+    
+    <!--タイトル-->
+    <div class="form-center">
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title, class: "form-control" %><br>
+    </div>
 
-      <!--説明-->
-      <div class="form-group">
-        <%= f.label :body, "本文" %>
-        <%= f.text_area :body, rows: 5, class: "form-control" %><br>
-      </div>
+    <!--説明-->
+    <div class="form-center">
+      <%= f.label :body, "本文" %>
+      <%= f.text_area :body, rows: 5, class: "form-control" %><br>
+    </div>
 
-      <!--ジャンル-->
-      <div class="form-group">
-        <%= f.label :genre_id, "ジャンル" %>
-        <%= f.select :genre_id, Genre.all.map{|t| [t.name, t.id]}, {include_blank: '--選択してください--'} %><br>
-      </div>
+    <!--ジャンル-->
+    <div class="form-center">
+      <%= f.label :genre_id, "ジャンル" %>
+      <%= f.select :genre_id, Genre.all.map{|t| [t.name, t.id]}, {include_blank: '--選択してください--'} %><br>
+    </div>
 
-      <div>
-        <%= f.submit "編集する", class: "btn btn-primary" %>
-      </div>
+    <div class="form-center">
+      <%= f.submit "編集する", class: "btn btn-primary" %>
     </div>
 
     <% end %>

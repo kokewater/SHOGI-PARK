@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
+    <h2>
+      <% if @user == current_user %>
+        マイページ
+      <% else %>
+        <%= @user.name %>さんのページ
+      <% end %>
+    </h2>
     <div class="col-md-3">
       <%= render 'public/questions/left_column', genres: @genres %>
     </div>
     <div class="col-md-9">
-      <h2>
-        <% if @user == current_user %>
-          マイページ
-        <% else %>
-          <%= @user.name %>さんのページ
-        <% end %>
-      </h2>
       <div class="row">
         <div class="col-md-6">
           <%= attachment_image_tag(@user, :profile_image, width: "100%", fallback: "no-image-icon.png") %>
