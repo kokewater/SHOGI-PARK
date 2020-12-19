@@ -1,5 +1,6 @@
 class Public::AnswersController < ApplicationController
   before_action :guest_user, only: [:create, :destroy]
+  before_action :ensure_correct_user, only: [:destroy]
 
   def create
     @question = Question.find(params[:question_id])
@@ -26,5 +27,12 @@ class Public::AnswersController < ApplicationController
 
   def best_answer_params
     params.require(:answer).permit(:is_best_answered)
+  end
+
+  def ensure_correct_user
+    answer = Answer.find(params[:id])
+    if current_user.id != answer.user.id
+      redirect_to questions_path
+    end
   end
 end
