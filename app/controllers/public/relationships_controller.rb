@@ -1,6 +1,6 @@
 class Public::RelationshipsController < ApplicationController
   before_action :guest_user, only: [:create, :destroy]
-  
+
   def create
     follow = current_user.active_relationships.build(follower_id: params[:user_id])
     follow.save

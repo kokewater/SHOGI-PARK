@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-
   devise_for :admin, controllers: {
-    sessions: 'admin/sessions'
+    sessions: 'admin/sessions',
   }
   namespace :admin do
     get 'top' => 'homes#top'
@@ -12,16 +11,14 @@ Rails.application.routes.draw do
     end
   end
 
-
   devise_for :users, controllers: {
     sessions: 'public/sessions',
-    registrations: 'public/registrations'
+    registrations: 'public/registrations',
   }
 
   devise_scope :user do
     post 'users/guest_sign_in' => 'public/sessions#new_guest'
   end
-
 
   scope module: :public do
     root 'homes#top'

@@ -17,6 +17,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -152,7 +158,12 @@ footer {
 
   // ジャンル一覧２列
   .genre-list {
-    column-count: 2;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .genre-child {
+      margin: 5px;
+    }
   }
 }
 

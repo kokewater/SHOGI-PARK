@@ -1,5 +1,4 @@
 class Public::PostMessagesController < ApplicationController
-
   before_action :guest_user, only: [:create]
 
   def index
@@ -21,6 +20,7 @@ class Public::PostMessagesController < ApplicationController
   end
 
   private
+
   def post_message_params
     params.require(:post_message).permit(:message)
   end

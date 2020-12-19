@@ -21,6 +21,7 @@ class Public::AnswersController < ApplicationController
   end
 
   private
+
   def answer_params
     params.require(:answer).permit(:answer)
   end

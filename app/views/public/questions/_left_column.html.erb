@@ -1,14 +1,14 @@
-<h2 class="text-center">ジャンル検索</h2>
-<div class="list-group list-unstyled genre-list text-center">
+<h2>ジャンル検索</h2>
+<div class="list-group list-unstyled genre-list">
   <% genres.each do |genre| %>
     <li class="genre-child">
-      <%= link_to genre.name, sort_questions_path(genre_id: genre.id) %>
+      <%= link_to genre.name, sort_questions_path(genre_id: genre.id), class: "btn btn-default" %>
     </li>
   <% end %>
 </div>
-<div class="title-center">
+<div class="">
   <%= link_to '質問する！！', new_question_path, class: "btn btn-info btn-lg new-question-button" %>
 </div>
-<div class="title-center">
+<div class="">
   <%= link_to '掲示板へ！！', post_messages_path, class: "btn btn-success btn-lg" %>
 </div>

@@ -18,7 +18,7 @@ class Public::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.includes(:user).page(params[:page]).per(10).reverse_order
+    @questions = Question.includes(:user).page(params[:page]).reverse_order
     @genres = Genre.all
   end
 
@@ -64,8 +64,8 @@ class Public::QuestionsController < ApplicationController
   end
 
   private
-    def question_params
-      params.require(:question).permit(:genre_id, :title, :body, :image)
-    end
 
+  def question_params
+    params.require(:question).permit(:genre_id, :title, :body, :image)
+  end
 end

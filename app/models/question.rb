@@ -16,11 +16,11 @@ class Question < ApplicationRecord
   def self.sort(keyword)
     case keyword
     when 'new'
-      return all.order(created_at: :DESC)
+      all.order(created_at: :DESC)
     when 'old'
-      return all.order(created_at: :ASC)
+      all.order(created_at: :ASC)
     when 'likes'
-      return find(Like.group(:question_id).order(Arel.sql('count(question_id) desc')).pluck(:question_id))
+      find(Like.group(:question_id).order(Arel.sql('count(question_id) desc')).pluck(:question_id))
     end
   end
 end

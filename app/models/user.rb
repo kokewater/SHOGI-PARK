@@ -24,20 +24,19 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :following
   # =======================================================================================
 
-  
   validates :name, presence: true
-  
+
   def followed_by?(user)
     passive_relationships.find_by(following_id: user.id).present?
   end
 
   # 退会済みユーザーを弾く
   def active_for_authentication?
-    super && (self.is_deleted == false)
+    super && (is_deleted == false)
   end
 
   def self.guest
-    find_or_create_by!(name: 'guest',email: 'guest@example.com') do |user|
+    find_or_create_by!(name: 'guest', email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
   end
