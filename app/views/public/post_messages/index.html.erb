@@ -3,17 +3,16 @@
     <h2>将棋情報掲示板</h2>
     <!--エラー文-->
     <%= render "layouts/errors", model: @post_message %>
-    
+
     <div class="col-md-3">
       <%= render 'public/questions/left_column', genres: @genres %>
     </div>
     <div class="col-md-9">
+      <!--掲示板投稿表示-->
       <ul class="message-list">
         <% @post_messages.each do |post_message| %>
-
-          <!--掲示板投稿表示-->
           <li>
-            <div>
+            <div class="row">
               <%= post_message.id %>
               <%= link_to user_path(post_message.user) do %>
   							<%= attachment_image_tag(post_message.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60') %>
@@ -28,7 +27,9 @@
             </div>
           </li>
         <% end %>
-        <%= paginate @post_messages %>
+        <div class="text-center">
+          <%= paginate @post_messages %>
+        </div>
       </ul>
 
       <!--掲示板投稿-->

@@ -5,7 +5,6 @@ class Question < ApplicationRecord
   has_many :likes, dependent: :destroy
   attachment :image
 
-  # validates :genre_id, presence: true
   validates :title, presence: true
   validates :body, presence: true
 
