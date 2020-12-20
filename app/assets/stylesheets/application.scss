@@ -27,7 +27,7 @@ h2 {
   font-size: 45px;
   text-align: center;
   font-weight: 600;
-  margin-top: 40px;
+  margin-top: 60px;
   margin-bottom: 50px;
   text-decoration: underline double;
 }
@@ -93,6 +93,40 @@ footer {
 }
 .top-image4 {
   background-image: image-url('top-image4.jpg');
+}
+
+.top-text {
+  font-size: 25px;
+  margin-bottom: 2rem;
+}
+
+.btn-yellow {
+  margin-right: 20px;
+  font-size: 30px;
+  color: #000;
+  background-color: #fff100;
+  border-bottom: 5px solid #ccc100;
+  font-weight: bold;
+  &:hover {
+    margin-top: 3px;
+    color: #000;
+    background: #fff20a;
+    border-bottom: 2px solid #ccc100;
+  }
+}
+
+.btn-green {
+  font-size: 30px;
+  color: #000;
+  background-color: #00ff71;
+  border-bottom: 5px solid #00662d;
+  font-weight: bold;
+  &:hover {
+    margin-top: 3px;
+    color: #000;
+    background: #00ff71;
+    border-bottom: 2px solid #00662d;
+  }
 }
 
 .top-questions {
