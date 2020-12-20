@@ -59,6 +59,7 @@ class Public::QuestionsController < ApplicationController
 
   def search
     @genres = Genre.all
+    @sort_type = params[:keyword] == nil ? "new" : params[:keyword]
     @questions = Question.sort(params[:keyword])
     @questions = Kaminari.paginate_array(@questions).page(params[:page])
   end

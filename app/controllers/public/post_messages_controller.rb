@@ -11,7 +11,7 @@ class Public::PostMessagesController < ApplicationController
     @post_message = PostMessage.new(post_message_params)
     @post_message.user_id = current_user.id
     if @post_message.save
-      redirect_to request.referer
+      redirect_to post_messages_path(page: PostMessage.page(params[:page]).per(50).total_pages)
     else
       @genres = Genre.all
       @post_messages = PostMessage.page(params[:page]).per(50)
