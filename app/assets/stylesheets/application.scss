@@ -95,7 +95,7 @@ footer {
   background-image: image-url('top-image4.jpg');
 }
 
-.top-text {
+.strong-text {
   font-size: 25px;
   margin-bottom: 2rem;
 }
@@ -192,6 +192,12 @@ footer {
       padding: 20px;
     }
   }
+}
+
+.user-show-introduction {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  word-break: break-word;
 }
 
 .message-list {

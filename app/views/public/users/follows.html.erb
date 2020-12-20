@@ -1,34 +1,6 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <h2>フォロー中ユーザー</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>プロフィール画像</th>
-          <th>名前</th>
-          <th>自己紹介</th>
-          <th>状態</th>
-        </tr>
-      </thead>
-      <% @users.each do |user| %>
-      <tbody>
-        <tr>
-          <td>
-            <%= attachment_image_tag(user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '40x40') %>
-          </td>
-          <td><%= link_to user.name, user_path(user.id) %></td>
-          <td><%= user.introduction %></td>
-          <% if current_user != user %>
-            <% if user.followed_by?(current_user) %>
-              <td><%=link_to "フォロー中", user_relationship_path(user, current_user), method: :delete %></td>
-            <% else %>
-              <td><%=link_to "フォローする", user_relationships_path(user), method: :post %></td>
-            <% end %>
-          <% end %>
-        </tr>
-      </tbody>
-      <% end %>
-      <%= paginate @users %>
-    </table>
+    <%= render 'users_list', users: @users %>
   </div>
 </div>
