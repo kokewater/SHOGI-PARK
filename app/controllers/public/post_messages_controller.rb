@@ -14,7 +14,7 @@ class Public::PostMessagesController < ApplicationController
       redirect_to request.referer
     else
       @genres = Genre.all
-      @post_messages = PostMessage.all
+      @post_messages = PostMessage.page(params[:page]).per(50)
       render :index
     end
   end

@@ -161,12 +161,18 @@ footer {
 }
 
 .message-list {
+  list-style: none;
+  padding: 20px;
   background-color: #fff;
   border-radius: 15px;
   li {
     word-break: break-word;
     margin-bottom: 20px;
   }
+}
+
+.message-text {
+  margin-top: 10px;
 }
 
 // レスポンシブデザイン

@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    attributes:
+      question:
+        title: タイトル
+        body: 質問内容
+
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+
+ja:
+  activerecord:
+    attributes:
+      post_message:
+        message: 投稿

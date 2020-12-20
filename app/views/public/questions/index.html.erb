@@ -8,7 +8,8 @@
       <%= form_with model: @question, url: search_questions_path, method: :get, local: true do |f| %>
         <%= f.select :keyword, [ ['投稿が新しい順', 'new'],
                                     ['投稿が古い順', 'old'],
-                                    ['いいねが多い順', 'likes']
+                                    ['いいねが多い順', 'likes'],
+                                    ['回答が多い順', 'answers']
                                     ] %>
         <%= f.submit '変更する' %>
       <% end %>

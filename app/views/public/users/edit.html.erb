@@ -4,23 +4,15 @@
     <%= form_with model: @user, url: user_path(@user), local: true do |f| %>
 
       <!--エラー文-->
-      <% if @user.errors.any? %>
-        <div class="alert alert-warning">
-          <ul>
-            <% @user.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+      <%= render "layouts/errors", model: @user %>
 
       <!--投稿画像-->
-      <div class="col-md-4">
+      <div class="col-md-5">
         <%= attachment_image_tag(@user, :profile_image, width: "100%", fallback: "no-image-icon.png") %><br>
         <%= f.attachment_field :profile_image %>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-7">
 
         <!--名前-->
         <div class="form-group">

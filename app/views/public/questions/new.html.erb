@@ -1,18 +1,13 @@
 <div class="container">
   <div class="row">
     <h2>質問投稿</h2>
-    <%= form_with model: @question, url: questions_path, method: :post, local: true do |f| %>
+    
     <!--エラー文-->
-    <% if @question.errors.any? %>
-      <div class="alert alert-warning">
-        <ul>
-          <% @question.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
+    <%= render "layouts/errors", model: @question %>
+    
+    <!--質問投稿フォーム-->
+    <%= form_with model: @question, url: questions_path, method: :post, local: true do |f| %>
+    
     <!--投稿画像-->
     <div class="form-center" >
       <div>

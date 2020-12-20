@@ -21,6 +21,8 @@ class Question < ApplicationRecord
       all.order(created_at: :ASC)
     when 'likes'
       find(Like.group(:question_id).order(Arel.sql('count(question_id) desc')).pluck(:question_id))
+    when 'answers'
+      find(Answer.group(:question_id).order(Arel.sql('count(question_id) desc')).pluck(:question_id))
     end
   end
 end
