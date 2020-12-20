@@ -146,6 +146,50 @@ footer {
   margin: 40px auto;
 }
 
+.about-image {
+  background-image: image-url('about-image.jpg');
+  height: 600px;
+  background-size: cover;
+  background-position: bottom;
+  .about-title-text {
+    text-align: center;
+    padding-top: 100px;
+    color: #fff;
+    text-shadow: 0 10px 10px black;
+    h1 {
+      font-size: 120px;
+      width: 400px;
+      margin: 0 auto;
+    }
+    p {
+      font-size: 35px;
+      padding-top: 30px;
+    }
+  }
+}
+
+.about-text {
+  padding: 100px 0;
+  text-align: center;
+  h3 {
+    font-size: 50px;
+  }
+}
+
+.about-introduction {
+  padding-top: 60px;
+  background-color: #fff;
+  h3 {
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 40px;
+  }
+}
+
+.strength {
+  font-size: 60px;
+}
+
 // 投稿やuserを2列にする
 .table-two-rows {
   column-count: 2;
