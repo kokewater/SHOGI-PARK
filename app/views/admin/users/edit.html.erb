@@ -1,5 +1,7 @@
 <div class="container">
-  <div>
+  <div class="row">
+    <h2>管理者ユーザー編集</h2>
+
     <%= form_with model: @user, url: admin_user_path(@user), local: true do |f| %>
 
       <!--エラー文-->
@@ -24,13 +26,13 @@
         <!--名前-->
         <div class="form-group">
           <%= f.label :name, "名前" %>
-          <%= f.text_field :name %><br>
+          <%= f.text_field :name, class: "form-control" %><br>
         </div>
 
         <!--自己紹介-->
         <div class="form-group">
           <%= f.label :introduction, "自己紹介" %>
-          <%= f.text_area :introduction, rows: 5 %><br>
+          <%= f.text_area :introduction, rows: 5, class: "form-control" %><br>
         </div>
 
         <div class="form-group">

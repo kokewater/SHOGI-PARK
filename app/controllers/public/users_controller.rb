@@ -4,6 +4,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @genres = Genre.all
+    @questions = @user.questions.page(params[:page]).per(6).reverse_order
   end
 
   def index
@@ -35,7 +36,7 @@ class Public::UsersController < ApplicationController
     @user = current_user
     @user.update(is_deleted: true)
     reset_session
-    flash[:info] = "「SHOGI-PARK」をご利用ありがとうございました"
+    flash[:info] = "「SHOGI-PARK」をご利用いただきありがとうございました"
     redirect_to root_path
   end
 

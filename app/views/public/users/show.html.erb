@@ -11,40 +11,47 @@
       <%= render 'public/questions/left_column', genres: @genres %>
     </div>
     <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-5">
-          <%= attachment_image_tag(@user, :profile_image, width: "100%", fallback: "no-image-icon.png") %>
+      <h3 class="text-center">プロフィール</h3>
+      <div class="user-introduction-box">
+        <div class="row">
+          <div class="col-md-5">
+            <%= attachment_image_tag(@user, :profile_image, width: "100%", fallback: "no-image-icon.png") %>
+          </div>
+          <div class="col-md-7">
+            <table class= "table">
+              <tr>
+                <th>名前：</th>
+                <th><%= @user.name %></th>
+              </tr>
+  
+              <tr>
+                <th>フォロー中：</th>
+                <th><%= link_to @user.followings.count, follows_user_path(@user.id) %></th>
+              </tr>
+              <tr>
+                <th>フォロワー：</th>
+                <th><%= link_to @user.followers.count, followers_user_path(@user.id) %></th>
+              </tr>
+            </table>
+          </div>
         </div>
-        <div class="col-md-7">
-          <table class= "table">
-            <tr>
-              <th>名前：</th>
-              <th><%= @user.name %></th>
-            </tr>
-
-            <tr>
-              <th>フォロー中：</th>
-              <th><%= link_to @user.followings.count, follows_user_path(@user.id) %></th>
-            </tr>
-            <tr>
-              <th>フォロワー：</th>
-              <th><%= link_to @user.followers.count, followers_user_path(@user.id) %></th>
-            </tr>
-          </table>
+        <div class="row user-show-introduction">
+          <p><strong>自己紹介：</strong></p>
+          <div>
+            <%= @user.introduction ||= "自己紹介はまだ書かれていません" %>
+          </div>
+        </div>
+        <div class="text-center">
+          <% if @user == current_user %>
+            <%= link_to '編集する', edit_user_path(current_user), class: "btn btn-primary" %>
+            <%= link_to '退会する', quit_user_path(current_user), class: "btn btn-danger" %>
+          <% end %>
         </div>
       </div>
-      <div class="row user-show-introduction">
-        <p><strong>自己紹介：</strong></p>
-        <div>
-          <%= @user.introduction = @user.introduction || "自己紹介はまだ書かれていません" %>
-        </div>
-      </div>
-      <div class="text-center">
-        <% if @user == current_user %>
-          <%= link_to '編集する', edit_user_path(current_user), class: "btn btn-primary" %>
-          <%= link_to '退会する', quit_user_path(current_user), class: "btn btn-danger" %>
-        <% end %>
-      </div>
+      
+      <!--自分の質問一覧表示-->
+      <h3 class="text-center">投稿</h3>
+      <%= render 'public/questions/questions_list', questions: @questions %>
     </div>
   </div>
 </div>

@@ -10,3 +10,10 @@ Admin.create!(
   email: 'admin@admin.com',
   password: 'adminadmin'
   )
+
+# User.create!(
+#   email: 'user1@example.com',
+#   password: 'railsrails',
+#   name: '田中です',
+#   is_deleted: false
+#   )

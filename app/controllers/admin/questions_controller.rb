@@ -1,6 +1,6 @@
 class Admin::QuestionsController < ApplicationController
   def index
-    @questions = Question.all.includes(:user)
+    @questions = Question.includes(:user).page(params[:page]).reverse_order
   end
 
   def show

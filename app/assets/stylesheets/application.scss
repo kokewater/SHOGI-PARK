@@ -273,11 +273,20 @@ footer {
   }
 }
 
+.user-introduction-box {
+  padding: 30px;
+  margin: 10px 0 40px;
+  background-color: #fff;
+  border-radius: 15px;
+  border: double 5px #a2a2ad;
+}
+
 .user-show-introduction {
   margin-top: 15px;
   margin-bottom: 20px;
   word-break: break-word;
 }
+
 
 .message-list {
   list-style: none;
@@ -292,6 +301,11 @@ footer {
 
 .message-text {
   margin-top: 10px;
+}
+
+.admin-top-content {
+  text-align: center;
+  font-size: 30px;
 }
 
 // レスポンシブデザイン

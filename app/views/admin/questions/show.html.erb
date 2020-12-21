@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
+    <h2>管理者質問詳細</h2>
     <div class="col-md-8 col-md-offset-2">
       <div class="question-show">
-        <%= attachment_image_tag(@question, :image, width: "100%", fallback: "no_image.jpg") %>
+        <%= attachment_image_tag(@question, :image, width: "100%", fallback: "no_image.png") %>
         タイトル：<%= @question.title %><br>
         質問：<%= @question.body %><br>
 
@@ -25,29 +26,22 @@
       </div>
 
       <!--回答表示-->
-      <div class="question-show">
-        <ul class="answer-table">
-          <% @question.answers.each do |answer| %>
-            <li>
-              <div class="table">
-                <tr>
-                  <td>
-                    <%= link_to edit_admin_user_path(answer.user.id) do %>
-                      <%= attachment_image_tag(answer.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60') %>
-                      <%= answer.user.name %>さん
-                    <% end %>
-                  </td><br>
-                  <td>
-                    <%= answer.answer %>
-                  </td>
-                </tr>
-                <%= link_to "コメントを削除", admin_question_answer_path(@question, answer), method: :delete, class: "btn btn-danger btn-xs pull-right", remote: true %>
-              </div>
-              <hr>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+      <ul class="answer-table">
+        <% @question.answers.each do |answer| %>
+          <li class="answer-single">
+            <div>
+              <%= link_to edit_admin_user_path(answer.user.id) do %>
+                <%= attachment_image_tag(answer.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60') %>
+                <%= answer.user.name %>さん
+              <% end %>
+            </div>
+            <div class="answer-text">
+              <%= answer.answer %>
+            </div>
+            <%= link_to "コメントを削除", admin_question_answer_path(@question, answer), method: :delete, class: "btn btn-danger btn-xs pull-right", remote: true %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

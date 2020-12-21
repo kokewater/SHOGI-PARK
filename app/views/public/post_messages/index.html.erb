@@ -46,7 +46,7 @@
           <% else %>
             <% flash[:notice] = '投稿は1分間に5回までです' %>
             <p class="text-center">
-              ※投稿制限です</br>
+              ※投稿制限中です。しばらく待ってから更新ボタンを押して下さい。
               <input type="button" value="更新" onclick="window.location.reload();" class="btn btn-primary"/>
             </p>
           <% end %>

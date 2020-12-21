@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+    <h2>管理者質問一覧</h2>
     <div class="row table-two-rows">
       <% @questions.each do |question| %>
         <div class="block-two-rows">
@@ -22,6 +23,9 @@
           </div>
         </div>
       <% end %>
+    </div>
+    <div class="text-center">
+      <%= paginate @questions %>
     </div>
   </div>
 </div>
