@@ -178,17 +178,27 @@ footer {
 
 .about-introduction {
   padding-top: 60px;
+  padding-bottom: 40px;
   background-color: #fff;
-  h3 {
+}
+
+.about-title {
     margin-bottom: 50px;
     text-align: center;
     font-size: 40px;
   }
-}
 
 .strength {
   font-size: 60px;
+  h4 {
+    padding: 15px 0;
+  }
+  p {
+    font-size: 16px;
+  }
 }
+
+.about-bottom-title 
 
 // 投稿やuserを2列にする
 .table-two-rows {
@@ -258,7 +268,7 @@ footer {
 
 .message-list {
   list-style: none;
-  padding: 20px;
+  padding: 20px  20px 20px 40px;
   background-color: #fff;
   border-radius: 15px;
   li {
@@ -273,7 +283,7 @@ footer {
 
 // レスポンシブデザイン
 @media screen and (max-width: 992px) {
-
+  
   // ジャンル一覧２列
   .genre-list {
     display: flex;

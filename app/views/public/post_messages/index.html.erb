@@ -41,7 +41,15 @@
         </div>
 
         <div>
-          <%= f.submit "投稿する", class: "btn btn-primary" %>
+          <% if @post_message.obey_1min_role?(current_user) %>
+            <%= f.submit "投稿する", class: "btn btn-primary" %>
+          <% else %>
+            <% flash[:notice] = '投稿は1分間に5回までです' %>
+            <p class="text-center">
+              ※投稿制限です</br>
+              <input type="button" value="更新" onclick="window.location.reload();" class="btn btn-primary"/>
+            </p>
+          <% end %>
         </div>
       <% end %>
     </div>
