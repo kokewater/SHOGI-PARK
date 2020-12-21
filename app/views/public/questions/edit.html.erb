@@ -16,7 +16,7 @@
 
     <!--投稿画像-->
     <div class="form-center">
-      <%= attachment_image_tag @question, :image, :fill, 300, 200, fallback: "no_image.png" %><br>
+      <%= attachment_image_tag @question, :image, :fill, 300, 200, fallback: "no_image.png", class: "question-image-circle" %><br>
       <%= f.attachment_field :image, class: "form-image" %>
     </div>
 

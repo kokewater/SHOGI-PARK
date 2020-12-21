@@ -5,21 +5,23 @@
       <%= render 'left_column', genres: @genres %>
     </div>
     <div class="col-md-9">
-      <div class="question-show">
-        <%= attachment_image_tag(@question, :image, width: "100%", fallback: "no_image.png") %>
-        タイトル：<%= @question.title %><br>
-        質問：<%= @question.body %><br>
+      <div class="question-show question-index-list list-unstyled">
+        <%= attachment_image_tag(@question, :image, width: "100%", fallback: "no_image.png", class: "question-image-circle") %>
+        <li>タイトル：<%= @question.title %></li>
+        <li>質問：<%= @question.body %></li>
 
-        <%= link_to user_path(@question.user) do %>
-          <%= attachment_image_tag(@question.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.png") %>
-          <%= @question.user.name %>さん
-        <% end %>
+        <li>
+          <%= link_to user_path(@question.user) do %>
+            <%= attachment_image_tag(@question.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.png", class: "user-image-circle") %>
+            <%= @question.user.name %>さん
+          <% end %>
+        </li>
 
         <% if current_user != @question.user %>
           <% if @question.user.followed_by?(current_user) %>
-            <p><%=link_to "フォロー済み", user_relationships_path(@question.user.id), method: :delete %></p>
+            <li><%=link_to "フォロー済み", user_relationships_path(@question.user.id), method: :delete, class: "btn btn-default" %></li>
           <% else %>
-            <p><%=link_to "フォローする", user_relationships_path(@question.user.id), method: :post %></p>
+            <li><%=link_to "フォローする", user_relationships_path(@question.user.id), method: :post, class: "btn btn-default" %></li>
           <% end %>
         <% end %>
 
@@ -43,8 +45,6 @@
           <%= link_to '編集する', edit_question_path(@question), class: "btn btn-primary pull-right" %>
         <% end %>
       </div>
-
-
 
       <!--回答表示-->
       <div>

@@ -15,7 +15,7 @@
             <div class="row">
               <%= post_message.id %>
               <%= link_to user_path(post_message.user) do %>
-  							<%= attachment_image_tag(post_message.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60') %>
+  							<%= attachment_image_tag(post_message.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60', class: "user-image-circle") %>
   							<%= post_message.user.name %>さん
   						<% end %>
             </div>
