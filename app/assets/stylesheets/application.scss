@@ -176,9 +176,8 @@ footer {
   }
 }
 
-.about-introduction {
-  padding-top: 60px;
-  padding-bottom: 40px;
+.about-white-background {
+  padding: 60px 30px 40px;
   background-color: #fff;
 }
 
@@ -186,6 +185,7 @@ footer {
     margin-bottom: 50px;
     text-align: center;
     font-size: 40px;
+    font-style: italic;
   }
 
 .strength {
@@ -198,7 +198,20 @@ footer {
   }
 }
 
-.about-bottom-title 
+.about-nomal-background {
+  padding: 60px 30px 40px;
+  margin: 0 auto;
+}
+
+.about-concept {
+  border-radius: 30px;
+  margin: 30px;
+  padding: 15px;
+  text-align: center;
+  font-size: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  background-color: #c0e4f2;
+}
 
 // 投稿やuserを2列にする
 .table-two-rows {
@@ -283,7 +296,7 @@ footer {
 
 // レスポンシブデザイン
 @media screen and (max-width: 992px) {
-  
+
   // ジャンル一覧２列
   .genre-list {
     display: flex;

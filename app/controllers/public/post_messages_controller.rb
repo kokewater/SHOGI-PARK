@@ -3,7 +3,7 @@ class Public::PostMessagesController < ApplicationController
 
   def index
     @genres = Genre.all
-    @post_messages = PostMessage.page(params[:page]).per(50)
+    @post_messages = PostMessage.includes(:user).page(params[:page]).per(50)
     @post_message = PostMessage.new
   end
 
