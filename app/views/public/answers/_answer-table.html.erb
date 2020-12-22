@@ -1,16 +1,43 @@
+<h3 class="text-center">＜回答一覧＞</h3>
 <% question.answers.each do |answer| %>
-  <li>
-    <%= link_to user_path(answer.user.id) do %>
-      <%= attachment_image_tag(answer.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60') %>
-      <%= answer.user.name %>さん
-    <% end %><br>
-    <%= answer.answer %><br>
+  <li class="answer-single">
+
+    <% if answer.is_best_answered? %>
+      <p class="best-answer-text">
+        <i class="fa fa-flag" aria-hidden="true"></i>
+        ベストアンサーです
+        <i class="fa fa-flag" aria-hidden="true"></i>
+      </p>
+    <% else %>
+      <p class="text-center">ベストアンサー以外の回答です</p>
+    <% end %>
+
     <div>
-      <% if answer.user == current_user %>
-        <div>
-          <%= link_to "削除する", question_answer_path(question, answer), method: :delete, class: "btn btn-danger pull-right", remote: true %>
-        </div>
+      <%= link_to user_path(answer.user.id) do %>
+        <%= attachment_image_tag(answer.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60', class: "user-image-circle") %>
+        <%= answer.user.name %>さん
       <% end %>
     </div>
+    <div class="answer-text">
+      <%= answer.answer %>
+    </div>
+
+    <!--ベストアンサーを決定する-->
+    <div class="text-center">
+      <% if question.user == current_user && answer.user_id != current_user.id %>
+        <% if question.answers.where(is_best_answered: true).exists? %>
+          <p>ベストアンサー選択済み</p>
+        <% else %>
+          <%= link_to "ベストアンサーにする", question_answer_path(question, answer, answer: {is_best_answered: true}), method: :put, class: "btn btn-info btn-xs", local: true %>
+        <% end %>
+      <% end %>
+    </div>
+
+
+    <!--コメントを削除-->
+    <% if answer.user == current_user %>
+      <%= link_to "コメントを削除", question_answer_path(question, answer), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger btn-xs pull-right", remote: true %>
+    <% end %>
   </li>
 <% end %>
+

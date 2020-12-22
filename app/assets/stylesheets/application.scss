@@ -17,22 +17,80 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 45px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  text-decoration: underline double;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 51px;
+  background-color: #f5f3f2;
+}
+
+.push {
+  height: 100px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 0;
+  width: 100%;
+  background-color: #464c56;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.login-registration-form {
+  background-color: #fff;
+  margin-top: 100px;
+  padding: 40px 32px;
+}
 
 .navbar-custom {
   background-color: #428ac9;
+  padding-right: 30px;
+  padding-left: 15px;
+}
+
+#sp-menu {
+  display: none;
 }
 
 .navbar-nav > li > a {
   color: #001000;
 }
 
-
-body {
-  margin-top: 51px;
-  background-color: #f5f3f2;
+.alert-notice {
+  background-color: #c2e2d2;
+  color: #000;
+  margin: 0;
 }
 
-#container{
+.alert-alert {
+  background-color: #f5b5a7;
+  color: #000;
+  margin: 0;
+}
+
+#image-container{
   height: 700px;
 }
 
@@ -49,34 +107,349 @@ body {
   background-image: image-url('top-image4.jpg');
 }
 
-.title-center {
-  text-align: center;
+.strong-text {
+  font-size: 25px;
+  margin-bottom: 2rem;
+}
+
+.btn-yellow {
+  margin-right: 20px;
+  font-size: 30px;
+  color: #000;
+  background-color: #fff100;
+  border-bottom: 5px solid #ccc100;
+  font-weight: bold;
+  &:hover {
+    margin-top: 3px;
+    color: #000;
+    background: #fff20a;
+    border-bottom: 2px solid #ccc100;
+  }
+}
+
+.btn-green {
+  font-size: 30px;
+  color: #000;
+  background-color: #00ff71;
+  border-bottom: 5px solid #00662d;
+  font-weight: bold;
+  &:hover {
+    margin-top: 3px;
+    color: #000;
+    background: #00ff71;
+    border-bottom: 2px solid #00662d;
+  }
 }
 
 .top-questions {
-  h1 {
-    text-align: center;
-  }
   width: 80%;
   margin: 40px auto;
 }
 
-.table-two-rows {
-  column-count: 2;
-  .block-two-rows {
-    background-color: #fff;
-    border-radius: 15px;
-    break-inside: avoid;
-    margin-bottom: 20px;
+.about-image {
+  background-image: image-url('about-image.jpg');
+  height: 600px;
+  background-size: cover;
+  background-position: bottom;
+  .about-title-text {
+    text-align: center;
+    padding-top: 100px;
+    color: #fff;
+    text-shadow: 0 10px 10px black;
+    h1 {
+      font-size: 120px;
+      width: 400px;
+      margin: 0 auto;
+    }
+    p {
+      font-size: 35px;
+      padding-top: 30px;
+    }
   }
 }
 
-.new-question-button {
+.about-text {
+  padding: 100px 0;
+  text-align: center;
+  h3 {
+    font-size: 50px;
+  }
+}
+
+.about-white-background {
+  padding: 60px 30px 40px;
+  background-color: #fff;
+}
+
+.about-title {
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 40px;
+    font-style: italic;
+  }
+
+.strength {
+  font-size: 60px;
+  h4 {
+    padding: 15px 0;
+  }
+  p {
+    font-size: 16px;
+  }
+}
+
+.about-nomal-background {
+  padding: 60px 30px 40px;
+  margin: 0 auto;
+}
+
+.about-concept {
+  border-radius: 30px;
   margin-bottom: 20px;
+  padding: 15px;
+  text-align: center;
+  font-size: 25px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  background-color: #c0e4f2;
+}
+
+// 質問・会員一覧
+.block-two-rows {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  break-inside: avoid;
+}
+
+.table-two-rows {
+  column-count: 2;
+}
+
+.genre-list {
+  padding-left: 25px;
+  li {
+    font-size: 25px;
+  }
+}
+
+.question-index-list {
+  li{
+    margin: 15px 0;
+    font-size: 20px;
+  }
+}
+
+.question-image-circle {
+  border-radius: 20px;
+}
+
+.user-image-circle {
+  border-radius: 50%;
+}
+
+.new-question-button {
+  margin-bottom: 15px;
+}
+
+// 入力フォームcss
+.form-center {
+  padding: 15px 30%;
+  align-items: center;
+  text-align: center;
+}
+
+.form-image {
+  margin: 10px auto;
 }
 
 .question-show {
   background-color: #fff;
-  margin-top: 30px;
+  padding: 20px;
+  margin-top: 20px;
   border-radius: 15px;
+  word-break: break-word;
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+.answer-table {
+  margin-top: 50px;
+  list-style: none;
+  padding : 0;
+  .answer-single {
+    background-color: #fff;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    word-break: break-word;
+    .answer-text {
+      padding: 20px;
+    }
+  }
+}
+
+.best-answer-text {
+  text-align: center;
+  font-size: 20px;
+  background-color: #f0831e;
+  
+}
+
+.user-introduction-box {
+  padding: 30px;
+  margin: 10px 0 40px;
+  background-color: #fff;
+  border-radius: 15px;
+  border: double 5px #a2a2ad;
+}
+
+.user-show-introduction {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  word-break: break-word;
+}
+
+
+.message-list {
+  list-style: none;
+  padding: 20px  20px 20px 40px;
+  background-color: #fff;
+  border-radius: 15px;
+  li {
+    word-break: break-word;
+    margin-bottom: 20px;
+  }
+}
+
+.message-text {
+  margin-top: 10px;
+}
+
+.admin-top-content {
+  text-align: center;
+  font-size: 30px;
+}
+
+// レスポンシブデザイン
+@media screen and (max-width: 992px) {
+
+  // ジャンル一覧２列
+  .genre-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    li {
+      margin: 5px;
+    }
+  }
+
+  .sidebar-title-center{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .sidebar-btn-center {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    div {
+      margin: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  body {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .nav {
+    float: none;
+  }
+  .navbar-nav > li {
+    display: none;
+  }
+
+  // ハンバーガーアイコン
+  #hm-icon {
+    position: fixed;
+    right: 20px;
+    top: 10px;
+    z-index: 10;
+  }
+
+  .menu-trigger,
+  .menu-trigger span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+  }
+  .menu-trigger {
+  position: relative;
+  width: 50px;
+  height: 44px;
+  }
+  .menu-trigger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #000;
+    border-radius: 4px;
+  }
+  .menu-trigger span:nth-child(1) {
+    top: 0;
+  }
+  .menu-trigger span:nth-child(2) {
+    top: 20px;
+  }
+  .menu-trigger span:nth-child(3) {
+    bottom: 0;
+  }
+  .menu-trigger.active span:nth-child(1) {
+    -webkit-transform: translateY(20px) rotate(-45deg);
+    transform: translateY(20px) rotate(-45deg);
+    background-color: #fff;
+  }
+  .menu-trigger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-trigger.active span:nth-child(3) {
+    -webkit-transform: translateY(-20px) rotate(45deg);
+    transform: translateY(-20px) rotate(45deg);
+    background-color: #fff;
+  }
+
+  // ハンバーガー開閉後メニュー
+  #sp-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #000;
+    color: #fff;
+    width: 100%;
+    min-height: 50%;
+    display: none;
+    z-index: 9;
+  }
+  #sp-menu li {
+    list-style: none;
+    margin-bottom: 30px;
+    border-bottom: 10px solid #428ac9;
+  }
+  #sp-menu a {
+    display: block;
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  #sp-menu h2 {
+    text-align: center;
+  }
 }

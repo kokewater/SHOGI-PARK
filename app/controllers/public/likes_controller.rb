@@ -1,4 +1,6 @@
 class Public::LikesController < ApplicationController
+  before_action :guest_user, only: [:create, :destroy]
+  before_action :authenticate_user!
 
   def create
     question = Question.find(params[:question_id])
@@ -13,5 +15,4 @@ class Public::LikesController < ApplicationController
     like.destroy
     redirect_to request.referer
   end
-
 end

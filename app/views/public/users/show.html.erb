@@ -1,23 +1,68 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-3">
+    <h2>
+      <% if @user == current_user %>
+        マイページ
+      <% else %>
+        <%= @user.name %>さんのページ
+      <% end %>
+    </h2>
+    <div class="col-md-3">
       <%= render 'public/questions/left_column', genres: @genres %>
     </div>
-    <div class="col-sm-9">
-      <h2>マイページ</h2>
-      <div class="row">
-        <div class="col-sm-6">
-          <%= attachment_image_tag(@user, :profile_image, width: "100%", fallback: "no-image-icon.png") %>
+    <div class="col-md-9">
+      <h3 class="text-center">プロフィール</h3>
+      <div class="user-introduction-box">
+        <div class="row">
+          <div class="col-md-5">
+            <%= attachment_image_tag(@user, :profile_image, width: "100%", fallback: "no-image-icon.png", class: "question-image-circle") %>
+          </div>
+          <div class="col-md-7">
+            <table class= "table">
+              <tr>
+                <th>名前：</th>
+                <th><%= @user.name %></th>
+              </tr>
+
+              <tr>
+                <th>フォロー中：</th>
+                <th><%= link_to @user.followings.count, follows_user_path(@user.id) %></th>
+              </tr>
+              <tr>
+                <th>フォロワー：</th>
+                <th><%= link_to @user.followers.count, followers_user_path(@user.id) %></th>
+              </tr>
+              <tr>
+                <th>ベストアンサー数</th>
+                <th><%= @user.answers.where(is_best_answered: true).count %></th>
+              </tr>
+            </table>
+            <% if current_user != @user %>
+              <% if @user.followed_by?(current_user) %>
+                <p><%=link_to "フォロー済み", user_relationship_path(@user.id, current_user.id), method: :delete, class: "btn btn-default" %></p>
+              <% else %>
+                <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-default" %></p>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-        <div class="col-sm-6">
-          名前：<%= @user.name %><br>
-          自己紹介：<%= @user.introduction = @user.introduction || "自己紹介はまだ書かれていません" %><br>
+        <div class="row user-show-introduction">
+          <p><strong>自己紹介：</strong></p>
+          <div>
+            <%= @user.introduction ||= "自己紹介はまだ書かれていません" %>
+          </div>
+        </div>
+        <div class="text-center">
           <% if @user == current_user %>
-            <%= link_to '編集する', edit_user_path(current_user), class: "btn btn-primary btn-lg" %>
-            <%= link_to '退会する', quit_user_path(current_user), class: "btn btn-danger btn-lg" %>
+            <%= link_to '編集する', edit_user_path(current_user), class: "btn btn-primary" %>
+            <%= link_to '退会する', quit_user_path(current_user), class: "btn btn-danger" %>
           <% end %>
         </div>
       </div>
+
+      <!--自分の質問一覧表示-->
+      <h3 class="text-center">質問投稿：<%= @questions.count %>件</h3>
+      <%= render 'public/questions/questions_list', questions: @questions %>
     </div>
   </div>
 </div>

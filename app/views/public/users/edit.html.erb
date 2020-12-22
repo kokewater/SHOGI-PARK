@@ -1,36 +1,29 @@
 <div class="container">
   <div class="row">
+    <h2 class="text-center">マイページ編集</h2>
     <%= form_with model: @user, url: user_path(@user), local: true do |f| %>
 
       <!--エラー文-->
-      <% if @user.errors.any? %>
-        <div class="alert alert-warning">
-          <ul>
-            <% @user.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+      <%= render "layouts/errors", model: @user %>
 
       <!--投稿画像-->
-      <div class="col-sm-4">
+      <div class="col-md-5">
         <%= attachment_image_tag(@user, :profile_image, width: "100%", fallback: "no-image-icon.png") %><br>
         <%= f.attachment_field :profile_image %>
       </div>
 
-      <div class="col-sm-4">
+      <div class="col-md-7">
 
         <!--名前-->
         <div class="form-group">
           <%= f.label :name, "名前" %>
-          <%= f.text_field :name %><br>
+          <%= f.text_field :name, class: "form-control" %><br>
         </div>
 
         <!--自己紹介-->
         <div class="form-group">
           <%= f.label :introduction, "自己紹介" %>
-          <%= f.text_area :introduction, rows: 5 %><br>
+          <%= f.text_area :introduction, rows: 5, class: "form-control" %><br>
         </div>
 
         <%= f.submit "編集する", class: "btn btn-primary" %>

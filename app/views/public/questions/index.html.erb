@@ -1,33 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-3">
+    <h2>質問一覧(全<%= @questions.total_count %>件)</h2>
+    <div class="col-md-3">
       <%= render 'left_column', genres: @genres %>
     </div>
-    <div class="col-sm-9">
-      <h2>質問一覧(全<%= @questions.count %>件)</h2>
-      <div class="row table-two-rows">
-        <% @questions.each do |question| %>
-          <div class="block-two-rows">
-            <%= link_to question_path(question) do %>
-              <%= attachment_image_tag question, :image, width: "100%", fallback: "no_image.png" %>
-            <% end %>
-            <div class="list-group" style="list-style: none;">
-              <li>
-                タイトル： <%= question.title %>
-                (回答数：<%= question.answers.count %>
-                いいね数：<%= question.likes.count %>)
-              </li>
-              <li>
-                <%= link_to user_path(question.user) do %>
-    							<%= attachment_image_tag(question.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.png") %>
-    							<%= question.user.name %>さん
-    						<% end %>
-						  </li>
-						  
-            </div>
-          </div>
-        <% end %>
-      </div>
+    <div class="col-md-9">
+      
+      <!--投稿をいいね順・コメント数等に変更-->
+      <%= render 'select_ranking', question: @question, sort_type: @sort_type %>
+      
+      <!--質問一覧表示-->
+      <%= render 'questions_list', questions: @questions %>
     </div>
   </div>
 </div>

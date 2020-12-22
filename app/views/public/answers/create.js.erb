@@ -1,2 +1,3 @@
 $(".answer-table").html("<%= j(render 'public/answers/answer-table', question: @question) %>");
+$(".question-show #question_<%= @question.id %> .comments-count").html("コメント<%= @question.answers.count %>件");
 $("#answer_answer").val("");
