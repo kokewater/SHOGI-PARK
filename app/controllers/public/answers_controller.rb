@@ -1,6 +1,7 @@
 class Public::AnswersController < ApplicationController
   before_action :guest_user, only: [:create, :destroy]
   before_action :ensure_correct_user, only: [:destroy]
+  
 
   def create
     @question = Question.find(params[:question_id])

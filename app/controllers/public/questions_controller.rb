@@ -1,6 +1,7 @@
 class Public::QuestionsController < ApplicationController
   before_action :authenticate_user!
   before_action :guest_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :destroy]
 
   def new
     @question = Question.new
@@ -68,5 +69,12 @@ class Public::QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:genre_id, :title, :body, :image)
+  end
+
+  def ensure_correct_user
+    question = Question.find(params[:id])
+    if current_user.id != question.user.id
+      redirect_to questions_path
+    end
   end
 end

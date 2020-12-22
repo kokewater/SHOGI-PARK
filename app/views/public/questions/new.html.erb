@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
     <h2>質問投稿</h2>
-    
+
     <!--エラー文-->
     <%= render "layouts/errors", model: @question %>
-    
+
     <!--質問投稿フォーム-->
     <%= form_with model: @question, url: questions_path, method: :post, local: true do |f| %>
-    
+
     <!--投稿画像-->
     <div class="form-center" >
       <div>
-        <%= attachment_image_tag @question, :image, width: "100%", fallback: "no_image.png" %>
+        <%= attachment_image_tag @question, :image, width: "100%", fallback: "no_image_yoko.jpg", class: "question-image-circle" %>
         <%= f.attachment_field :image, class: "form-image" %>
       </div>
 

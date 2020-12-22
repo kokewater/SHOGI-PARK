@@ -1,4 +1,6 @@
 class Admin::QuestionsController < ApplicationController
+  before_action :authenticate_admin!
+  
   def index
     @questions = Question.includes(:user).page(params[:page]).reverse_order
   end

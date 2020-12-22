@@ -1,5 +1,6 @@
 class Public::PostMessagesController < ApplicationController
   before_action :guest_user, only: [:create]
+  before_action :authenticate_user!
 
   def index
     @genres = Genre.all

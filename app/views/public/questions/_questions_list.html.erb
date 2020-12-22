@@ -2,17 +2,17 @@
   <div class="row block-two-rows">
     <div class="col-md-6">
       <%= link_to question_path(question) do %>
-        <%= attachment_image_tag question, :image, width: "100%", fallback: "no_image.png", class: "question-image-circle" %>
+        <%= attachment_image_tag question, :image, width: "100%", fallback: "no_image_yoko.jpg", class: "question-image-circle" %>
       <% end %>
     </div>
     <div class="col-md-6 list-unstyled question-index-list">
-      <li><%= question.title %></li>
       <li>
         <%= link_to user_path(question.user) do %>
 					<%= attachment_image_tag question.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.png", class: "user-image-circle" %>
 					<%= question.user.name %>さん
 				<% end %>
 		  </li>
+		  <li>タイトル：<%= question.title %></li>
 		  <li>
         (回答数：<%= question.answers.count %>
         いいね数：<%= question.likes.count %>)
