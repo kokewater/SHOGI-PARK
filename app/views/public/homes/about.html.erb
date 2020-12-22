@@ -1,17 +1,84 @@
-
-<div class="text-center">
-
-  <h1><strong>SHOGI-PARKとは</strong></h1>
-
-  <p>
-    将棋に特化したQ＆Aサイトです。情報を共有できる掲示板もあります。
-  </p>
-
-
-  <h1>使い方</h1>
-  <p>
-    普段将棋を指してて分からないことや疑問に思ったことを聞いてください！
-  </p>
-  <%= link_to '新規登録', new_user_registration_path, class: "btn btn-primary btn-lg" %>
-  <%= link_to 'ログイン', new_user_session_path, class: "btn btn-success btn-lg" %>
+<div class="about-image">
+  <div class=about-title-text>
+    <h1>ABOUT</h1>
+    <p>
+      将棋の疑問を共有・解決<br>
+      "最強"の将棋Q＆Aサイト
+    </p>
+  </div>
+</div>
+<div class="about-text">
+  <h3>＼SHOGI-PARKへようこそ／</h3>
+</div>
+<div class="about-white-background">
+  <h3 class="about-title">SHOGI-PARKの主な機能</h3>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="row">
+        <div class="col-md-4 text-center strength">
+          <i class="fa fa-edit" aria-hidden="true"></i>
+          <h4>Q＆A機能</h4>
+          <p>
+            分からない将棋の局面を質問・回答することができます。
+            また、質問にはいいねをつけたり、
+            他の会員をフォローしたりすることができます。
+          </p>
+        </div>
+        <div class="col-md-4 text-center strength">
+          <i class="fa fa-trophy" aria-hidden="true"></i>
+          <h4>ベストアンサー機能</h4>
+          <p>
+            質問者は回答の中からベストアンサーを選ぶことができます。
+            自分の回答はベストアンサーにすることはできません。
+          </p>
+        </div>
+        <div class="col-md-4 text-center strength">
+          <i class="fa fa-desktop" aria-hidden="true"></i>
+          <h4>掲示板機能</h4>
+          <p>
+            掲示板で将棋の情報を共有することができます。
+            また、交流にも使うことができます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="about-nomal-background">
+  <h3 class="about-title">SHOGI-PARKのコンセプト</h3>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-1 about-concept">
+      <h4><strong>将棋の疑問を共有する</strong></h4>
+    </div>
+    <div class="col-sm-4 col-sm-offset-2 about-concept">
+      <h4><strong>棋力の向上</strong></h4>
+    </div>
+    <div class="col-sm-4 col-sm-offset-1 about-concept">
+      <h4><strong>将棋ファン同士で交流する</strong></h4>
+    </div>
+    <div class="col-sm-4 col-sm-offset-2 about-concept">
+      <h4><strong>最新情報を得る</strong></h4>
+    </div>
+  </div>
+</div>
+<div class="about-white-background">
+  <h3 class="about-title">注意事項</h3>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <p>
+        ※ゲストユーザーは投稿や編集はできません。<strong>閲覧専用</strong>となっております。
+        投稿などをされる場合は新規登録をして下さい。
+      </p>
+      <p>※質問や掲示板では300文字まで投稿できます。自己紹介文は150字まで設定できます。</p>
+      <p>
+        ※掲示板では荒らし対策で1分間に6回以上投稿できないようになっております。
+        制限にかかった場合はリロードして下さい。
+      </p>
+      <p>※上で最強の将棋Q＆Aサイトと謳っていますが、これにはサイト運営者の希望的観測が含まれております。</p>
+    </div>
+  </div>
+</div>
+<div class="text-center about-nomal-background">
+  <%= link_to '新規登録はこちら', new_user_registration_path, class: "btn btn-yellow" %>
+  <%= link_to 'ログインはこちら', new_user_session_path, class: "btn btn-green" %>
 </div>

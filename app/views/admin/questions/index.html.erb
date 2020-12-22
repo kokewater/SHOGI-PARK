@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <h2>管理者質問一覧</h2>
+    <div class="row table-two-rows">
+      <% @questions.each do |question| %>
+        <div class="block-two-rows">
+          <%= link_to admin_question_path(question) do %>
+            <%= attachment_image_tag question, :image, width: "100%", fallback: "no_image_yoko.jpg" %>
+          <% end %>
+          <div class="list-group" style="list-style: none;">
+            <li>
+              タイトル： <%= question.title %>
+              (回答数：<%= question.answers.count %>
+              いいね数：<%= question.likes.count %>)
+            </li>
+            <li>
+              <%= link_to edit_admin_user_path(question.user) do %>
+    						<%= attachment_image_tag(question.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.png") %>
+    						<%= question.user.name %>さん
+    					<% end %>
+    			  </li>
+            <li>(<%= question.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)</li>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="text-center">
+      <%= paginate @questions %>
+    </div>
+  </div>
+</div>

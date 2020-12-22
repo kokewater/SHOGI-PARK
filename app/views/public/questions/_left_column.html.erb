@@ -1,14 +1,19 @@
-<div class="list-group list-unstyled">
-  <h2>ジャンル検索</h2>
+<h3 class="sidebar-title-center">＜ジャンル検索＞</h3>
+<div class="list-group list-unstyled genre-list">
   <% genres.each do |genre| %>
     <li>
-      <%= link_to genre.name, sort_questions_path(genre_id: genre.id) %>
+      <%= link_to sort_questions_path(genre_id: genre.id), class: "btn btn-default" do %>
+        <i class="fas fa-search"></i>
+        <%= genre.name %>
+      <% end %>
     </li>
   <% end %>
 </div>
-<div>
-  <%= link_to '質問する！！', new_question_path, class: "btn btn-info btn-lg new-question-button" %>
-</div>
-<div>
-  <%= link_to '掲示板へ！！', post_messages_path, class: "btn btn-success btn-lg" %>
+<div class="sidebar-btn-center">
+  <div>
+    <%= link_to '質問する！！', new_question_path, class: "btn btn-info btn-lg new-question-button" %>
+  </div>
+  <div>
+    <%= link_to '掲示板へ！！', post_messages_path(page: PostMessage.page(params[:page]).per(50).total_pages), class: "btn btn-success btn-lg" %>
+  </div>
 </div>

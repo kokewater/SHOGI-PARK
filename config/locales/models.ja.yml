@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      question:
+      user:
+      post_message:
+      genre:
+    attributes:
+      question:
+        title: タイトル
+        body: 質問内容
+        genre: ジャンル名
+        genre_id: ジャンル名
+      user:
+        name: 名前
+      post_message:
+        message: 名前
+      genre:
+        name: ジャンル名

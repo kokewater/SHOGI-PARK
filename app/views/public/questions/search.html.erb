@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h2>質問一覧(全<%= @questions.total_count %>件)</h2>
+    <div class="col-md-3">
+      <%= render 'left_column', genres: @genres %>
+    </div>
+    <div class="col-md-9">
+      
+      <!--投稿をいいね順・コメント数順等に変更-->
+      <%= render 'select_ranking', question: @question, sort_type: @sort_type %>
+
+      <!--質問一覧表示-->
+      <%= render 'questions_list', questions: @questions %>
+    </div>
+  </div>
+</div>

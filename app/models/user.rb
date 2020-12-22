@@ -8,4 +8,38 @@ class User < ApplicationRecord
   has_many :answers, dependent: :destroy
   attachment :profile_image
   has_many :likes, dependent: :destroy
+  has_many :post_messages, dependent: :destroy
+
+  # ====================自分がフォローしているユーザーとの関連 ===================================
+
+  has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
+
+  has_many :followings, through: :active_relationships, source: :follower
+  # ========================================================================================
+
+  # ====================自分がフォローされるユーザーとの関連 ===================================
+
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
+
+  has_many :followers, through: :passive_relationships, source: :following
+  # =======================================================================================
+
+  validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
+  validates :introduction, length: {maximum: 150 }
+
+  def followed_by?(user)
+    passive_relationships.find_by(following_id: user.id).present?
+  end
+
+  # 退会済みユーザーを弾く
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
+  # ゲスト作成
+  def self.guest
+    find_or_create_by!(name: 'guest', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
 end

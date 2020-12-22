@@ -17,6 +17,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+// トップページスライダー
 $(document).ready(function () {
   $("#theTarget").skippr({
     // スライドショーの変化 ("fade" or "slide")
@@ -41,3 +42,16 @@ $(document).ready(function () {
     hidePrevious : false
   });
 });
+
+// ハンバーガーメニュー
+$(document).on('turbolinks:load', function() {
+  $(function() {
+    $('.menu-trigger').on('click', function(event) {
+      $(this).toggleClass('active');
+      $('#sp-menu').fadeToggle();
+      event.preventDefault();
+    });
+  });
+});
+
+

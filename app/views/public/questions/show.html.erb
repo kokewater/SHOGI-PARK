@@ -1,41 +1,53 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-3">
+    <h2>質問詳細</h2>
+    <div class="col-md-3">
       <%= render 'left_column', genres: @genres %>
     </div>
-    <div class="col-sm-9">
-      <div class="question-show">
-        <%= attachment_image_tag(@question, :image, width: "100%", fallback: "no_image.jpg") %>
-        タイトル：<%= @question.title %><br>
-        質問：<%= @question.body %><br>
+    <div class="col-md-9">
+      <div class="question-show question-index-list list-unstyled">
+        <%= attachment_image_tag(@question, :image, width: "100%", fallback: "no_image_yoko.jpg", class: "question-image-circle") %>
+        <li>タイトル：<%= @question.title %></li>
+        <li>質問：<%= @question.body %></li>
 
-        <%= link_to user_path(@question.user) do %>
-          <%= attachment_image_tag(@question.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.png") %>
-          <%= @question.user.name %>さん
-        <% end %><br>
+        <li>
+          <%= link_to user_path(@question.user) do %>
+            <%= attachment_image_tag(@question.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.png", class: "user-image-circle") %>
+            <%= @question.user.name %>さん
+          <% end %>
+        </li>
+
+        <% if current_user != @question.user %>
+          <% if @question.user.followed_by?(current_user) %>
+            <li><%=link_to "フォロー済み", user_relationships_path(@question.user.id), method: :delete, class: "btn btn-default" %></li>
+          <% else %>
+            <li><%=link_to "フォローする", user_relationships_path(@question.user.id), method: :post, class: "btn btn-default" %></li>
+          <% end %>
+        <% end %>
 
         <ul class="list-inline" id="question_<%= @question.id %>">
+
+          <li>(<%= @question.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)</li>
+
+          <li class="comments-count">コメント<%= @question.answers.count %>件</li>
 
           <!--いいねボタン-->
           <li class="like-btn">
             <%= render 'public/likes/like-btn', question: @question %>
           </li>
 
-          <li>コメント<%= @question.answers.count %>件</li>
-          <% if @question.user == current_user %>
-            <li>
-              <%= link_to '編集する', edit_question_path(@question), class: "btn btn-primary pull-right" %>
-            </li>
-            <li>
-              <%= link_to '削除する', question_path(@question), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"},
-              class: "btn btn-danger pull-right" %>
-            </li>
-          <% end %>
         </ul>
+      </div>
+      <div>
+        <!--質問編集削除-->
+        <% if @question.user == current_user %>
+          <%= link_to '削除する', question_path(@question), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger pull-right" %>
+          <%= link_to '編集する', edit_question_path(@question), class: "btn btn-primary pull-right" %>
+        <% end %>
       </div>
 
       <!--回答表示-->
-      <div class="question-show">
+      <div>
         <ul class="answer-table">
           <%= render 'public/answers/answer-table', question: @question %>
         </ul>
@@ -43,10 +55,11 @@
 
       <!--回答入力フォーム-->
       <div>
+        <h3 class="text-center">＜回答を書く＞</h3>
         <%= form_with(model:[@question, @answer], method: :post, remote: true) do |f| %>
           <div class="row">
-            <div class="col-sm-12">
-              <%= f.text_area :answer, rows: '5', class: "form-control", placeholder: "回答はこちら", remote: true %>
+            <div class="col-md-12">
+              <%= f.text_area :answer, rows: 5, class: "form-control", placeholder: "回答はこちら", remote: true %>
             </div>
           </div>
           <%= f.submit "送信する", class: "btn btn-success pull-right" %>

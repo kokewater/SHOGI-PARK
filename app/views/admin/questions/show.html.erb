@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <h2>管理者質問詳細</h2>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="question-show">
+        <%= attachment_image_tag(@question, :image, width: "100%", fallback: "no_image_yoko.jpg") %>
+        タイトル：<%= @question.title %><br>
+        質問：<%= @question.body %><br>
+
+        <%= link_to edit_admin_user_path(@question.user) do %>
+          <%= attachment_image_tag(@question.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.png") %>
+          <%= @question.user.name %>さん
+        <% end %>
+
+        <ul class="list-inline" id="question_<%= @question.id %>">
+
+          <li>(<%= @question.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)</li>
+
+          <li class="comments-count">コメント<%= @question.answers.count %>件</li>
+
+        </ul>
+      </div>
+      <div>
+        <!--質問削除admin特権-->
+        <%= link_to '削除する', admin_question_path(@question), method: :delete, data: {confirm: "迷惑ツイートとして削除しますか？"}, class: "btn btn-danger pull-right" %>
+      </div>
+
+      <!--回答表示-->
+      <ul class="answer-table">
+        <% @question.answers.each do |answer| %>
+          <li class="answer-single">
+            <div>
+              <%= link_to edit_admin_user_path(answer.user.id) do %>
+                <%= attachment_image_tag(answer.user, :profile_image, :fill, 60, 60, fallback: "no-image-icon.png", size: '60x60') %>
+                <%= answer.user.name %>さん
+              <% end %>
+            </div>
+            <div class="answer-text">
+              <%= answer.answer %>
+            </div>
+            <%= link_to "コメントを削除", admin_question_answer_path(@question, answer), method: :delete, class: "btn btn-danger btn-xs pull-right", remote: true %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
