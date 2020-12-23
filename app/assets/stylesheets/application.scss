@@ -91,7 +91,7 @@ footer {
 }
 
 #image-container{
-  height: 700px;
+  height: 60vh;
 }
 
 .top-image1 {
@@ -148,22 +148,21 @@ footer {
 
 .about-image {
   background-image: image-url('about-image.jpg');
-  height: 600px;
+  height: 40vh;
   background-size: cover;
   background-position: bottom;
   .about-title-text {
     text-align: center;
-    padding-top: 100px;
+    padding-top: 80px;
     color: #fff;
     text-shadow: 0 10px 10px black;
     h1 {
-      font-size: 120px;
-      width: 400px;
+      font-size: clamp(50px, 12vw, 180px);
       margin: 0 auto;
     }
     p {
-      font-size: 35px;
-      padding-top: 30px;
+      font-size: clamp(18px, 4vw, 60px);
+      padding-top: 40px;
     }
   }
 }
@@ -172,7 +171,7 @@ footer {
   padding: 100px 0;
   text-align: center;
   h3 {
-    font-size: 50px;
+    font-size: 6vw;
   }
 }
 
@@ -213,11 +212,15 @@ footer {
   background-color: #c0e4f2;
 }
 
+.sidebar-btn-center > div {
+  margin: 5px;
+}
+
 // 質問・会員一覧
 .block-two-rows {
   background-color: #fff;
   border-radius: 15px;
-  padding: 20px;
+  padding: 15px;
   margin-bottom: 20px;
   break-inside: avoid;
 }
@@ -248,13 +251,9 @@ footer {
   border-radius: 50%;
 }
 
-.new-question-button {
-  margin-bottom: 15px;
-}
-
 // 入力フォームcss
 .form-center {
-  padding: 15px 30%;
+  padding: 15px 20%;
   align-items: center;
   text-align: center;
 }
@@ -293,7 +292,7 @@ footer {
   text-align: center;
   font-size: 20px;
   background-color: #f0831e;
-  
+
 }
 
 .user-introduction-box {
@@ -345,7 +344,7 @@ footer {
   }
 
   .sidebar-title-center{
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     text-align: center;
   }
@@ -354,9 +353,6 @@ footer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    div {
-      margin: 10px;
-    }
   }
 }
 
