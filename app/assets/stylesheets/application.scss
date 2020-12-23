@@ -113,7 +113,7 @@ footer {
 }
 
 .btn-yellow {
-  margin-right: 20px;
+  margin: 5px;
   font-size: 30px;
   color: #000;
   background-color: #fff100;
@@ -128,6 +128,7 @@ footer {
 }
 
 .btn-green {
+  margin: 5px;
   font-size: 30px;
   color: #000;
   background-color: #00ff71;
@@ -212,8 +213,11 @@ footer {
   background-color: #c0e4f2;
 }
 
-.sidebar-btn-center > div {
-  margin: 5px;
+.sidebar-btn-center {
+  margin-bottom: 20px;
+  div {
+    margin: 5px;
+  }
 }
 
 // 質問・会員一覧
