@@ -11,7 +11,7 @@
 </div>
 <div class="sidebar-btn-center">
   <div>
-    <%= link_to '質問する！！', new_question_path, class: "btn btn-info btn-lg new-question-button" %>
+    <%= link_to '質問する！！', new_question_path, class: "btn btn-info btn-lg" %>
   </div>
   <div>
     <%= link_to '掲示板へ！！', post_messages_path(page: PostMessage.page(params[:page]).per(50).total_pages), class: "btn btn-success btn-lg" %>
