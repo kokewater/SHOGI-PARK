@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :admin, controllers: {
-    sessions: 'admin/sessions',
+    sessions: 'admin/sessions'
   }
   namespace :admin do
     get 'top' => 'homes#top'
