@@ -4,7 +4,7 @@
 将棋に特化したQ&Aサイト、また、掲示板を通して将棋ファンが交流するサイト。
 
 ### サイトテーマ
-将棋ファンが疑問を気軽に質問できる。将棋について熱く語ることができるサイト！
+将棋ファンが疑問を気軽に質問できる。将棋について熱く語ることができる場所！
 
 ### テーマを選んだ理由
 私自身将棋が好きで、分からない将棋の局面の共有、解決、情報共有のできるサイトがあったら良いなあと考えてこのテーマにしました。
@@ -34,10 +34,8 @@ https://docs.google.com/spreadsheets/d/1THrGVhqoSPzDt2TeRiqBzjnhTmYUkrPc0F9AEk7S
 - IDE：Cloud9
 
 ## 使用素材
-- ぱくたそ https://www.pakutaso.com/
-- O-DAN http://o-dan.net/ja/
+- fontawesome https://fontawesome.com/
 - いらすとや https://www.irasutoya.com/
 - illustAC https://www.ac-illust.com/
-- Font Free http://fontfree.me/
-- ICOOON MONO http://icooon-mono.com/
-- designevo https://www.designevo.com/
+- photoAC https://www.photo-ac.com/
+- 半透過マルチアイコンfavicon.icoを作ろう! https://ao-system.net/alphaicon/
