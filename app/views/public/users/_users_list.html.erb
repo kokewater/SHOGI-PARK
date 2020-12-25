@@ -12,6 +12,8 @@
         <% else %>
           <p><%=link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-default" %></p>
         <% end %>
+      <% else %>
+        <p><%=link_to "マイページへ", user_path(current_user.id), class: "btn btn-default" %></p>
       <% end %>
     </div>
   <% end %>
