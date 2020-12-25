@@ -34,7 +34,7 @@ https://docs.google.com/spreadsheets/d/1THrGVhqoSPzDt2TeRiqBzjnhTmYUkrPc0F9AEk7S
 - IDE：Cloud9
 
 ## 使用素材
--fontawesome https://fontawesome.com/
+- fontawesome https://fontawesome.com/
 - いらすとや https://www.irasutoya.com/
 - illustAC https://www.ac-illust.com/
 - photoAC https://www.photo-ac.com/
