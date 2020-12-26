@@ -1,1 +1,1 @@
-$(".question-show #question_<%= @question.id %> .like-btn").html("<%= j(render 'public/likes/like-btn', question: @question) %>”);
+$("#question_<%= @question.id %> .like-btn").html("<%= j(render 'public/likes/like-btn', question: @question) %>");

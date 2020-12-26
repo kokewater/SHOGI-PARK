@@ -1,9 +1,5 @@
 <% if question.liked_by?(current_user) %>
- <li>
-   <%= link_to question.likes.count , question_like_path(question,current_user), method: :delete, remote: true, class: "glyphicon glyphicon-heart" %>
- </li>
+  <%= link_to question.likes.count , question_like_path(question,current_user), method: :delete, remote: true, class: "glyphicon glyphicon-heart" %>
 <% else %>
-  <li>
-    <%= link_to question.likes.count ,question_likes_path(question), method: :post, remote: true, class: "glyphicon glyphicon-heart-empty" %>
-  </li>
+  <%= link_to question.likes.count ,question_likes_path(question), method: :post, remote: true, class: "glyphicon glyphicon-heart-empty" %>
 <% end %>
